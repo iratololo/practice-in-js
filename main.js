@@ -86,7 +86,7 @@ n.toFixed("2"); //
 
 //TODO: Number.toString()
 
-
+//  клас Math 
 
 //TODO: Math.ceil()
 /*
@@ -129,29 +129,31 @@ console.log(Math.round(-2.7)); //
 
 //TODO: Math.floor()
 
+console.log('Math.floor() :>> ', Math.floor());
+
 /*
-0.8 ==> 0
-0.9 ==> 0
-1.0 ==> 1
-1.1 ==> 1
-1.2 ==> 1
-1.3 ==> 1
-1.4 ==> 1
-1.5 ==> 1
-1.6 ==> 1
-1.7 ==> 1
-1.8 ==> 1
-1.9 ==> 1
-2.0 ==> 2
-2.1 ==> 2
-2.2 ==> 2
-2.3 ==> 2
-2.4 ==> 2
-2.5 ==> 2
-2.6 ==> 2
-2.7 ==> 2
-2.8 ==> 2
-2.9 ==> 2
+0.8 ==> 
+0.9 ==> 
+1.0 ==> 
+1.1 ==> 
+1.2 ==> 
+1.3 ==> 
+1.4 ==> 
+1.5 ==> 
+1.6 ==> 
+1.7 ==> 
+1.8 ==> 
+1.9 ==> 
+2.0 ==> 
+2.1 ==> 
+2.2 ==> 
+2.3 ==> 
+2.4 ==> 
+2.5 ==> 
+2.6 ==> 
+2.7 ==> 
+2.8 ==> 
+2.9 ==> 
 */
 
 
@@ -188,66 +190,28 @@ console.log(Math.round(-2.7)); //
 //TODO:String.trim()!!!!!!!
 
 
-// let message =  prompt("What color do you see?")?.trim().toLowerCase();
-
-// switch (message) {
-//     case "red":
-//         console.log('action stop');
-//         break;
-//     case "yellow":
-//         console.log("action ready");
-//         break;
-//     case "green":
-//         console.log('action go');
-//         break;
-//     default: 
-//         console.log('be careful');
-// }
-
-function check(riddle, answer) {
-    let message = prompt(riddle)?.trim().toLowerCase();
-    return message === answer ? true : false;
-}
-
-// console.log(check("Хоч не літак, а крилатий", "вітряк"));
-// console.log(check("bridge", "міст"));
-
-function counter(high) {
-    const daySpeed = 7;
-    const nightSpeed = 2;
-    let days=0;
-    let total=0;
-    while (total < high) {
-        total += daySpeed;
-        days += 1;
-        if (total < high) {
-            total -= nightSpeed;
-        }
-    }
-    return days;
-}
-
-// console.log(counter(42));
-
-// console.log(counter(17))
-    
-// console.log(counter(18));
 
 
-function countVowel(str) {
-    const vowels = "aeiou";
-    str = str.toLowerCase();
-    let sum = 0;
-    for (let i = 0; i < str.length; i += 1) {
-        if (vowels.includes(str[i])) {
-            sum += 1;
-        }
-    }
-    return sum;  
-}
-
-console.log(countVowel("HELLO WORLD")); //3
-console.log(countVowel("Junior Web Develope")); //8
+console.log('typeof NaN :>> ', typeof NaN);
 
 
+console.log('Math.pow(2,3) :>> ', Math.pow(2, 3));
+console.log('Math.random() :>> ', Math.random());
+
+console.log('Number("25.6px") :>> ', Number("25.6px"));
+console.log('("25.6px").parseInt() :>> ', Number.parseInt("25.6px"));
+
+
+
+// ЗАВДАННЯ 1. Методи рядків та чейнінг.
+// Скрипт, який розраховує індекс маси тіла людини. Для цього необхідно розділити вагу в кг на квадрат висоти. Індекс маси тіла необхідно округлити до однієї цифри після коми.
+
+let weight = "88,3";
+let height = "1.75";
+weight = Number(weight.replace(",", "."));
+let squaredHight = Math.pow(Number(height),2);
+
+// const bmi = Number(weight.replace(",",".") / Math.pow(height,2)).toFixed(1);
+const bmi = Number((weight / squaredHight).toFixed(1));
+console.log('bmi :>> ', bmi);
 
