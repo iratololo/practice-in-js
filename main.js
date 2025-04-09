@@ -215,3 +215,15 @@ let squaredHight = Math.pow(Number(height),2);
 const bmi = Number((weight / squaredHight).toFixed(1));
 console.log('bmi :>> ', bmi);
 
+
+
+// ЗАВДАННЯ 2. Напиши скрипт, який переведе значення totalMinutes в рядок у форматі НН:ММ.
+// 70 хв - 01: 10
+// 450 хв - 07:30
+// 1441 хв - 24:01
+
+const totalMinutes = 1441;
+const hours =  Math.floor(totalMinutes / 60);
+const min = totalMinutes % 60;
+const clock = `${hours.toString().padStart(2,"0")}:${min.toString().padStart(2,"0")}`;
+console.log('clock :>> ', clock);
