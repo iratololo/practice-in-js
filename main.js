@@ -227,3 +227,11 @@ const hours =  Math.floor(totalMinutes / 60);
 const min = totalMinutes % 60;
 const clock = `${hours.toString().padStart(2,"0")}:${min.toString().padStart(2,"0")}`;
 console.log('clock :>> ', clock);
+
+
+// ЗАВДАННЯ 3. Напиши скрипт, який просить користувача ввести число і степінь, підносить число до степіня і повертає значення.
+
+let number = Number(prompt("Enter number"));
+let pow = Number(prompt("Enter power"));
+let result = Math.pow(number, pow);
+alert(`Your result is ${result}`);
