@@ -235,3 +235,132 @@ let number = Number(prompt("Enter number"));
 let pow = Number(prompt("Enter power"));
 let result = Math.pow(number, pow);
 alert(`Your result is ${result}`);
+
+
+// ЗАВДАННЯ 4. Використовуючи if...else та prompt, напиши код, який питатиме "Яка офіційна назва JavaScript?", якщо користувач вводить "ECMAScript", то показуй alert "Правильно", в іншому випадку - правильну відповідь.
+
+const answer = prompt("Яка офіційна назва JavaScript?");
+console.log('answer :>> ', answer);
+if (answer === "ecmascript") {
+    alert("Правильно!")
+} else {
+    alert("ECMAScript")
+}
+
+
+// ЗАВДАННЯ 5. Напиши скрипт, який виводить у консоль рядок "Це позитивне число", якщо користувач ввів число більше нуля, якщо нуль - "Це нуль", якщо від'ємне - "Це від'ємне число".
+
+const userInput = Number(prompt("Введіть число"));
+
+if (userInput > 0) {
+    console.log('Це позитивне число');
+} else if (userInput === 0) {
+    console.log('Це нуль');
+} else if (userInput < 0) {
+    console.log("Це від'ємне число");
+}
+
+
+// ЗАВДАННЯ 6. Напиши скрипт, який порівнює два числа а та b. Якщо обидва більше 100, то виведи в консоль максимальне з них. У протилежному випадку у консолі повинна бути сума значення b та числа 512.
+
+const a = 120;
+const b = 100;
+
+if (a > 100 && b > 100) {
+    console.log(Math.max(a,b));
+} else {
+    console.log(b + 512);
+}
+
+
+// ЗАВДАННЯ 7. Напиши скрипт, який перевіряє чи закінчується значення змінної символом /.Якщо ні - додай до кінця значення цeй символ.
+
+let link = "https://my-site.com/about"
+
+if (!link.endsWith("/")) {
+    link = link + "/"
+} 
+
+console.log('link :>> ', link);
+
+// ЗАВДАННЯ 8. Напиши скрипт, який перевіряє чи закінчується значення змінної символом /.Якщо ні - додай до кінця значення цeй символ,але тільки у тому випадку, якщо в змінної є підрядок "my-site".
+
+let link2 = "https://my-site.com/book"
+
+if (!link2.endsWith("/") && link2.includes("my-site")) {
+    link2 += "/"
+}
+
+console.log('link2 :>> ', link2);
+
+// ЗАВДАННЯ 9. Напиши скрипт для відображення часу дедлайну задачі проекту.
+// Якщо до дедлайну 0 днів - виведи рядок "Сьогодні"
+// Якщо до дедлайну 1 днів - виведи рядок "Завтра"
+// Якщо до дедлайну 2 днів - виведи рядок "Післязавтра"
+// Якщо до дедлайну 3+ днів - виведи рядок "Дата в майбутньому"
+
+const daysUntilDeadline = 2;
+
+if (daysUntilDeadline) {
+    if (daysUntilDeadline === 1) {
+        console.log("Завтра");
+    } else if (daysUntilDeadline === 2) {
+        console.log("Післязавтра");
+    } else if (daysUntilDeadline > 3) {
+        console.log("Дата в майбутньому");
+    }
+} else {
+    console.log("Сьогодні");
+}
+
+switch (daysUntilDeadline) {
+    case 0:
+        console.log("Сьогодні");
+        break;
+    case 1:
+        console.log("Завтра");
+        break;
+    case 2:
+        console.log("Післязавтра");
+        break;
+    default:
+        console.log("Дата в майбутньому");
+}
+
+// ЗАВДАННЯ 10. Напиши цикл for, який виводить у консоль числа за зростанням від мін до макс, але тільки якщо число кратне 5.
+
+const minNumber = 20;
+const maxNumber = 100;
+
+for (let i = minNumber; i <= maxNumber; i += 1) {
+    if (!(i % 5)) {
+        console.log('i ', i);
+    }
+}
+
+
+// ЗАВДАННЯ 11. Напиши скрипт, який питатиме логін. Якщо відвідувач вводить адмін, то запитує пароль, якщо нічого або Esc - "Скасовано". В іншому випадку рядок "Я вас не знаю." Якщо введено пароль "Я адмін", то вивести рядок "Привіт", інакше виводити рядок "Невірний пароль".
+
+const login = prompt("Enter your login");
+
+if (login === "Admin") {
+    const password = prompt("Enter your password")
+    if (password === "I am admin") {
+        console.log('Hello');
+    } else {
+        console.log('Wrong password');
+    }
+} else {
+    console.log('I do not know you ');
+}
+
+if (!login) {
+    console.log('Скасовано');
+} else {
+    if (login === "Admin") {
+        const password = prompt("Enter your password")
+        password === "I am admin" ? console.log('Hello') : console.log('Wrong password');
+} else {
+    console.log('I do not know you ');
+}
+}
