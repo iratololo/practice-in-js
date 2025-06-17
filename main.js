@@ -231,34 +231,34 @@ console.log('clock :>> ', clock);
 
 // ЗАВДАННЯ 3. Напиши скрипт, який просить користувача ввести число і степінь, підносить число до степіня і повертає значення.
 
-let number = Number(prompt("Enter number"));
-let pow = Number(prompt("Enter power"));
-let result = Math.pow(number, pow);
-alert(`Your result is ${result}`);
+// let number = Number(prompt("Enter number"));
+// let pow = Number(prompt("Enter power"));
+// let result = Math.pow(number, pow);
+// alert(`Your result is ${result}`);
 
 
 // ЗАВДАННЯ 4. Використовуючи if...else та prompt, напиши код, який питатиме "Яка офіційна назва JavaScript?", якщо користувач вводить "ECMAScript", то показуй alert "Правильно", в іншому випадку - правильну відповідь.
 
-const answer = prompt("Яка офіційна назва JavaScript?");
-console.log('answer :>> ', answer);
-if (answer === "ecmascript") {
-    alert("Правильно!")
-} else {
-    alert("ECMAScript")
-}
+// const answer = prompt("Яка офіційна назва JavaScript?");
+// console.log('answer :>> ', answer);
+// if (answer === "ecmascript") {
+//     alert("Правильно!")
+// } else {
+//     alert("ECMAScript")
+// }
 
 
 // ЗАВДАННЯ 5. Напиши скрипт, який виводить у консоль рядок "Це позитивне число", якщо користувач ввів число більше нуля, якщо нуль - "Це нуль", якщо від'ємне - "Це від'ємне число".
 
-const userInput = Number(prompt("Введіть число"));
+// const userInput = Number(prompt("Введіть число"));
 
-if (userInput > 0) {
-    console.log('Це позитивне число');
-} else if (userInput === 0) {
-    console.log('Це нуль');
-} else if (userInput < 0) {
-    console.log("Це від'ємне число");
-}
+// if (userInput > 0) {
+//     console.log('Це позитивне число');
+// } else if (userInput === 0) {
+//     console.log('Це нуль');
+// } else if (userInput < 0) {
+//     console.log("Це від'ємне число");
+// }
 
 
 // ЗАВДАННЯ 6. Напиши скрипт, який порівнює два числа а та b. Якщо обидва більше 100, то виведи в консоль максимальне з них. У протилежному випадку у консолі повинна бути сума значення b та числа 512.
@@ -341,26 +341,89 @@ for (let i = minNumber; i <= maxNumber; i += 1) {
 
 // ЗАВДАННЯ 11. Напиши скрипт, який питатиме логін. Якщо відвідувач вводить адмін, то запитує пароль, якщо нічого або Esc - "Скасовано". В іншому випадку рядок "Я вас не знаю." Якщо введено пароль "Я адмін", то вивести рядок "Привіт", інакше виводити рядок "Невірний пароль".
 
-const login = prompt("Enter your login");
+// const login = prompt("Enter your login");
 
-if (login === "Admin") {
-    const password = prompt("Enter your password")
-    if (password === "I am admin") {
-        console.log('Hello');
-    } else {
-        console.log('Wrong password');
+// if (login === "Admin") {
+//     const password = prompt("Enter your password")
+//     if (password === "I am admin") {
+//         console.log('Hello');
+//     } else {
+//         console.log('Wrong password');
+//     }
+// } else {
+//     console.log('I do not know you ');
+// }
+
+// if (!login) {
+//     console.log('Скасовано');
+// } else {
+//     if (login === "Admin") {
+//         const password = prompt("Enter your password")
+//         password === "I am admin" ? console.log('Hello') : console.log('Wrong password');
+// } else {
+//     console.log('I do not know you ');
+// }
+// }
+
+// ЗАВДАННЯ 12. Створи світлофор використовуючи конструкцію Switch, в prompt юзер вводить колір, який він бачить і має отримати повідомлення з дією.
+
+const color = prompt("What color do you see?")?.toLowerCase();
+
+switch (color) {
+    case "red":
+        console.log('action stop');
+        break;
+    case "yellow":
+        console.log("action ready");
+        break;
+    case "green":
+        console.log("action go");
+        break;
+    default:
+        console.log("action be careful");
+// }
+
+
+// ЗАВДАННЯ 13. Створи логіку для перевірки правильних відповідей на загадки.
+
+function check(text, answer) {
+    const message = prompt(text);
+    return message?.toLowerCase() === answer;
+}
+console.log(check("{оч не літак, а крилатий", "вітряк"));
+
+// ЗАВДАННЯ 14. Створи функцію, яка буде рахувати за скільки днів Равлик зможе виповзти з колодязя. Функція приймає один параметр - глибину колодязя, поветрає кількість днів, яку равлик витратив на шлях. За день равлик проповзає на 7 м вгору, за ніч опускається на 2 м. Використовуй цикл while.
+// 42м проповзе за 8 днів
+// 17м проповзе за 3 днів
+// 18м проповзе за 4 днів
+
+function getDays(deps) {
+    let days = 0;
+    const perDay = 7;
+    const perNight = 2;
+    let total = 0;
+    while (total < deps) {
+        total += perDay;
+        days += 1;
+        if (total < deps) total -= perNight;
     }
-} else {
-    console.log('I do not know you ');
+    return days;
 }
+// console.log(getDays(17));
 
-if (!login) {
-    console.log('Скасовано');
-} else {
-    if (login === "Admin") {
-        const password = prompt("Enter your password")
-        password === "I am admin" ? console.log('Hello') : console.log('Wrong password');
-} else {
-    console.log('I do not know you ');
+// ЗАВДАННЯ 14. Порахуйте скільки голосних літер у реченні.
+
+function countVowel(str) {
+    const vowels = "aeiou";
+    str = str?.toLowerCase()
+    let counter = 0;
+    for (let i = 0; i < str.length; i += 1) {
+        if (vowels.includes(str[i])) {
+            counter += 1;
+        }
+    }
+    return counter;
 }
-}
+console.log(countVowel("hello world"));
+console.log(countVowel("Ira"));
+console.log(countVowel("rrrrrrrrrrrRRRRRR"));
