@@ -239,26 +239,26 @@ console.log('clock :>> ', clock);
 
 // ЗАВДАННЯ 4. Використовуючи if...else та prompt, напиши код, який питатиме "Яка офіційна назва JavaScript?", якщо користувач вводить "ECMAScript", то показуй alert "Правильно", в іншому випадку - правильну відповідь.
 
-// const answer = prompt("Яка офіційна назва JavaScript?");
-// console.log('answer :>> ', answer);
-// if (answer === "ecmascript") {
-//     alert("Правильно!")
-// } else {
-//     alert("ECMAScript")
-// }
+const answer = prompt("Яка офіційна назва JavaScript?");
+console.log('answer :>> ', answer);
+if (answer === "ecmascript") {
+    alert("Правильно!")
+} else {
+    alert("ECMAScript")
+}
 
 
 // ЗАВДАННЯ 5. Напиши скрипт, який виводить у консоль рядок "Це позитивне число", якщо користувач ввів число більше нуля, якщо нуль - "Це нуль", якщо від'ємне - "Це від'ємне число".
 
-// const userInput = Number(prompt("Введіть число"));
+const userInput = Number(prompt("Введіть число"));
 
-// if (userInput > 0) {
-//     console.log('Це позитивне число');
-// } else if (userInput === 0) {
-//     console.log('Це нуль');
-// } else if (userInput < 0) {
-//     console.log("Це від'ємне число");
-// }
+if (userInput > 0) {
+    console.log('Це позитивне число');
+} else if (userInput === 0) {
+    console.log('Це нуль');
+} else if (userInput < 0) {
+    console.log("Це від'ємне число");
+}
 
 
 // ЗАВДАННЯ 6. Напиши скрипт, який порівнює два числа а та b. Якщо обидва більше 100, то виведи в консоль максимальне з них. У протилежному випадку у консолі повинна бути сума значення b та числа 512.
@@ -341,29 +341,29 @@ for (let i = minNumber; i <= maxNumber; i += 1) {
 
 // ЗАВДАННЯ 11. Напиши скрипт, який питатиме логін. Якщо відвідувач вводить адмін, то запитує пароль, якщо нічого або Esc - "Скасовано". В іншому випадку рядок "Я вас не знаю." Якщо введено пароль "Я адмін", то вивести рядок "Привіт", інакше виводити рядок "Невірний пароль".
 
-// const login = prompt("Enter your login");
+const login = prompt("Enter your login");
 
-// if (login === "Admin") {
-//     const password = prompt("Enter your password")
-//     if (password === "I am admin") {
-//         console.log('Hello');
-//     } else {
-//         console.log('Wrong password');
-//     }
-// } else {
-//     console.log('I do not know you ');
-// }
+if (login === "Admin") {
+    const password = prompt("Enter your password")
+    if (password === "I am admin") {
+        console.log('Hello');
+    } else {
+        console.log('Wrong password');
+    }
+} else {
+    console.log('I do not know you ');
+}
 
-// if (!login) {
-//     console.log('Скасовано');
-// } else {
-//     if (login === "Admin") {
-//         const password = prompt("Enter your password")
-//         password === "I am admin" ? console.log('Hello') : console.log('Wrong password');
-// } else {
-//     console.log('I do not know you ');
-// }
-// }
+if (!login) {
+    console.log('Скасовано');
+} else {
+    if (login === "Admin") {
+        const password = prompt("Enter your password")
+        password === "I am admin" ? console.log('Hello') : console.log('Wrong password');
+} else {
+    console.log('I do not know you ');
+}
+}
 
 // ЗАВДАННЯ 12. Створи світлофор використовуючи конструкцію Switch, в prompt юзер вводить колір, який він бачить і має отримати повідомлення з дією.
 
@@ -381,7 +381,7 @@ switch (color) {
         break;
     default:
         console.log("action be careful");
-// }
+}
 
 
 // ЗАВДАННЯ 13. Створи логіку для перевірки правильних відповідей на загадки.
