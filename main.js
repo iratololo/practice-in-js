@@ -239,26 +239,26 @@ console.log('clock :>> ', clock);
 
 // ЗАВДАННЯ 4. Використовуючи if...else та prompt, напиши код, який питатиме "Яка офіційна назва JavaScript?", якщо користувач вводить "ECMAScript", то показуй alert "Правильно", в іншому випадку - правильну відповідь.
 
-const answer = prompt("Яка офіційна назва JavaScript?");
-console.log('answer :>> ', answer);
-if (answer === "ecmascript") {
-    alert("Правильно!")
-} else {
-    alert("ECMAScript")
-}
+// const answer = prompt("Яка офіційна назва JavaScript?");
+// console.log('answer :>> ', answer);
+// if (answer === "ecmascript") {
+//     alert("Правильно!")
+// } else {
+//     alert("ECMAScript")
+// }
 
 
 // ЗАВДАННЯ 5. Напиши скрипт, який виводить у консоль рядок "Це позитивне число", якщо користувач ввів число більше нуля, якщо нуль - "Це нуль", якщо від'ємне - "Це від'ємне число".
 
-const userInput = Number(prompt("Введіть число"));
+// const userInput = Number(prompt("Введіть число"));
 
-if (userInput > 0) {
-    console.log('Це позитивне число');
-} else if (userInput === 0) {
-    console.log('Це нуль');
-} else if (userInput < 0) {
-    console.log("Це від'ємне число");
-}
+// if (userInput > 0) {
+//     console.log('Це позитивне число');
+// } else if (userInput === 0) {
+//     console.log('Це нуль');
+// } else if (userInput < 0) {
+//     console.log("Це від'ємне число");
+// }
 
 
 // ЗАВДАННЯ 6. Напиши скрипт, який порівнює два числа а та b. Якщо обидва більше 100, то виведи в консоль максимальне з них. У протилежному випадку у консолі повинна бути сума значення b та числа 512.
@@ -341,47 +341,47 @@ for (let i = minNumber; i <= maxNumber; i += 1) {
 
 // ЗАВДАННЯ 11. Напиши скрипт, який питатиме логін. Якщо відвідувач вводить адмін, то запитує пароль, якщо нічого або Esc - "Скасовано". В іншому випадку рядок "Я вас не знаю." Якщо введено пароль "Я адмін", то вивести рядок "Привіт", інакше виводити рядок "Невірний пароль".
 
-const login = prompt("Enter your login");
+// const login = prompt("Enter your login");
 
-if (login === "Admin") {
-    const password = prompt("Enter your password")
-    if (password === "I am admin") {
-        console.log('Hello');
-    } else {
-        console.log('Wrong password');
-    }
-} else {
-    console.log('I do not know you ');
-}
+// if (login === "Admin") {
+//     const password = prompt("Enter your password")
+//     if (password === "I am admin") {
+//         console.log('Hello');
+//     } else {
+//         console.log('Wrong password');
+//     }
+// } else {
+//     console.log('I do not know you ');
+// }
 
-if (!login) {
-    console.log('Скасовано');
-} else {
-    if (login === "Admin") {
-        const password = prompt("Enter your password")
-        password === "I am admin" ? console.log('Hello') : console.log('Wrong password');
-} else {
-    console.log('I do not know you ');
-}
-}
+// if (!login) {
+//     console.log('Скасовано');
+// } else {
+//     if (login === "Admin") {
+//         const password = prompt("Enter your password")
+//         password === "I am admin" ? console.log('Hello') : console.log('Wrong password');
+// } else {
+//     console.log('I do not know you ');
+// }
+// }
 
 // ЗАВДАННЯ 12. Створи світлофор використовуючи конструкцію Switch, в prompt юзер вводить колір, який він бачить і має отримати повідомлення з дією.
 
-const color = prompt("What color do you see?")?.toLowerCase();
+// const color = prompt("What color do you see?")?.toLowerCase();
 
-switch (color) {
-    case "red":
-        console.log('action stop');
-        break;
-    case "yellow":
-        console.log("action ready");
-        break;
-    case "green":
-        console.log("action go");
-        break;
-    default:
-        console.log("action be careful");
-}
+// switch (color) {
+//     case "red":
+//         console.log('action stop');
+//         break;
+//     case "yellow":
+//         console.log("action ready");
+//         break;
+//     case "green":
+//         console.log("action go");
+//         break;
+//     default:
+//         console.log("action be careful");
+// }
 
 
 // ЗАВДАННЯ 13. Створи логіку для перевірки правильних відповідей на загадки.
@@ -390,7 +390,7 @@ function check(text, answer) {
     const message = prompt(text);
     return message?.toLowerCase() === answer;
 }
-console.log(check("{оч не літак, а крилатий", "вітряк"));
+// console.log(check("{оч не літак, а крилатий", "вітряк"));
 
 // ЗАВДАННЯ 14. Створи функцію, яка буде рахувати за скільки днів Равлик зможе виповзти з колодязя. Функція приймає один параметр - глибину колодязя, поветрає кількість днів, яку равлик витратив на шлях. За день равлик проповзає на 7 м вгору, за ніч опускається на 2 м. Використовуй цикл while.
 // 42м проповзе за 8 днів
@@ -411,6 +411,8 @@ function getDays(deps) {
 }
 // console.log(getDays(17));
 
+
+
 // ЗАВДАННЯ 14. Порахуйте скільки голосних літер у реченні.
 
 function countVowel(str) {
@@ -424,6 +426,125 @@ function countVowel(str) {
     }
     return counter;
 }
-console.log(countVowel("hello world"));
-console.log(countVowel("Ira"));
-console.log(countVowel("rrrrrrrrrrrRRRRRR"));
+
+
+const array = [1, "Hello", null, true, [1, 2, 3]];
+
+for (let i = 0; i < array.length; i += 1){
+    if (Array.isArray(array[i])) {
+        for (let j = 0; j < array[i].length; j += 1){
+            console.log(array[i][j])
+        }
+        continue;
+    }
+    console.log(array[i])
+}
+
+let i = 0;
+
+while (i < array.length) {
+    console.log('while',array[i]);
+    i += 1;
+}
+
+
+
+// ЗАВДАННЯ 15. Напиши скрипт для обчислення площі прямокутника зі сторонами значення яких зберігається у змінній у вигляді рядка.
+
+const values = '8 11';
+
+const arr = values.split(" ");
+console.log(arr)
+const area = Number(arr[0]) * Number(arr[1]);
+console.log(area);
+
+
+
+// ЗАВДАННЯ 16. Напиши скрипт для перебору масиву fruits циклом for. Виведи у консоль рядок у форматі Номер: значення. Нумерація починається з одиниці.
+
+const fruits = ['apple', 'grape', 'peach', 'banana', 'lemon'];
+
+for (let i = 0; i < fruits.length; i += 1) {
+    console.log(`${i+1}: ${fruits[i]}`);
+}
+
+for (let i = 0, num = 1; i < fruits.length; i += 1, num += 1) {
+    console.log(`${num}: ${fruits[i]}`);
+}
+
+
+
+// ЗАВДАННЯ 17. Напиши скрипт який виводить у консоль ім'я та номер телефону, кількість імен та номерів телефону однакова.
+
+let names = 'Jacob, William, Solomon, Artemis, Iryna';
+let phones = '80954610147, 80954612149, 80509022230, 80955026931';
+
+names = names.split(", ");
+phones = phones.split(", ");
+
+for (let i = 0; i < names.length, i< phones.length; i += 1) {
+     console.log(`${names[i]}: ${phones[i]}`);
+}
+
+
+
+// ЗАВДАННЯ 17. Напиши скрипт який виводить у консоль усі слова рядка, окрім першого та останнього, результат не повинен починатися чи закінчуватися пробілом, скрипт повинен працювати для будь-якого рядка.
+
+let string = "Welcome to the future";
+
+const result = string.split(" ").slice(1, -1).join(" ");
+console.log(result)
+
+
+
+// ЗАВДАННЯ 18. Напиши скрипт який розвертає рядок і виводить його в консоль.
+
+let string_2 = "Welcome to the future";
+string_2 = string_2.split("").reverse().join("");
+console.log(string_2);
+
+
+
+// ЗАВДАННЯ 19. Напиши скрипт сортування масиву рядків в алфавітному порядку за першою літерою елемента.
+
+const langs = ["python", 'javascript', 'c++', 'khaskel', 'php', 'ruby', 'zizi', 'anna'];
+
+
+// for (let i = 0; i < langs.length; i += 1) {
+//     for (let j = i + 1; j < langs.length; j += 1) {
+//         if (langs[i][0] > langs[j][0]) {
+//             const result = langs.splice(j, 1)[0];
+//             langs.splice(i, 0, result);
+//         }
+//     }
+// }
+
+function bubbleSort(arr) {
+
+  const len = arr.length;
+
+  for (let i = 0; i < len; i++) {
+
+    for (let j = 0; j < len - 1; j++) {
+
+      if (arr[j] > arr[j + 1]) {
+
+        // If the current element is larger than the next one, swap them
+
+        const temp = arr[j];
+
+        arr[j] = arr[j + 1];
+
+        arr[j + 1] = temp;
+
+      }
+
+    }
+
+  }
+
+  return arr;
+
+}
+
+console.log(bubbleSort(langs))
