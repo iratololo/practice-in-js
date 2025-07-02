@@ -548,3 +548,67 @@ function bubbleSort(arr) {
 }
 
 console.log(bubbleSort(langs))
+
+
+// ЗАВДАННЯ 20. Напиши скрипт пошуку найменшого числа в масиві.
+
+// const numbers = [2,17, 94, 1, 23, 37];
+const numbers = [250,50,44,360,11,-1,20];
+let minNumbers=numbers[0];
+
+for (let i = 0; i < numbers.length; i += 1){
+    if (numbers[i] < minNumbers) {
+        minNumbers = numbers[i];
+    }
+
+}
+
+console.log('minNumbers :>> ', minNumbers);
+
+// ЗАВДАННЯ 21. Напиши скрипт, який буде перебирати масив та видаляти з нього всі елементи, що не є типом даних number.
+
+const arr_1 = [3, 'Hello', null, 42, false];
+
+// for (let i = 0; i < arr_1.length; i += 1) {
+//     if (typeof arr_1[i] !== 'number') {
+//         arr_1.splice(i, 1);
+//         i-=1;
+//     }
+// }
+
+for (let i = arr_1.length-1; i >= 0; i -= 1) {
+    if (typeof arr_1[i] !== 'number') {
+        arr_1.splice(i, 1);
+    }
+}
+
+
+console.log(arr_1);
+
+// ЗАВДАННЯ 22. Напиши функцію, яка буде приймати один параметр. Функція повинна відібрати з масиву тільки ті елементи, що дублюються та повернути їх у вигляді нового масиву як результат виконання.
+
+// function getCommonElements(arr) {
+//     let commonElements=[];
+//     for (let i = 0; i < arr.length; i += 1){
+//         for (let j = 0; j < arr.length; j += 1){
+//             if (arr[i] === arr[j]) {
+//                 commonElements.push(arr[j]);
+//             }
+//         }
+//     }
+//     return commonElements
+// }
+
+function getCommonElements(arr) {
+    let commonElements=[];
+    for (let i = 0; i < arr.length; i += 1) {
+        if (arr.includes(arr[i], i + 1)) {
+            if (!commonElements.includes(arr[i])) {
+                commonElements.push(arr[i]);
+            }
+        }
+    }
+    return commonElements
+}
+
+console.log(getCommonElements([1, 2, 3, 2, 1, 17,1, 19]));
