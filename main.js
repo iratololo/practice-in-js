@@ -611,4 +611,97 @@ function getCommonElements(arr) {
     return commonElements
 }
 
-console.log(getCommonElements([1, 2, 3, 2, 1, 17,1, 19]));
+
+console.log(getCommonElements([1, 2, 3, 2, 1, 17, 1, 19]));
+
+// ЗАВДАННЯ 23. Напиши функцію, яка буде приймати два параметри. ПЕрший - масив всіх юзерів, другий - масив з чоловічими іменами. Функція повинна відібрати з масиву всіх юзерів лише жіночі імена та повернути їх у результаті свого виконання.
+
+const users = ["Artem", 'Anna', 'Larysa', 'Maksym', 'Svitlana', 'Davyd', 'Roman', 'Olga'];
+const men = ["Artem", 'Maksym', 'Davyd', 'Roman'];
+
+function getWomen(users, men) {
+    const women = [];
+    for (let i = 0; i < users.length; i += 1){
+        if (!men.includes(users[i])) {
+            women.push(users[i])
+        }
+    }
+    return women;
+}
+
+console.log(getWomen(users, men));
+
+// ЗАВДАННЯ 24. Напиши скрипт, який розгортає рядок і виводить його в консоль.
+
+function getReverseString(string) {
+    const separator = '';
+    const result = string.split(separator).reverse().join(separator);
+    console.log(result);
+}
+
+getReverseString('Welcome to the future');
+
+// ЗАВДАННЯ 25. Напиши скрипт, який буде перевіряти чи елементи в масиві розташовані в порядку зростання, якщо ні - то замінити елементи на вірні.
+
+const numbers_1 = [1, 2, 3, 1, 5, 6, 1, 1, 9];
+
+
+for (let i = 1; i < numbers_1.length; i += 1){
+    const currentEl = numbers_1[i];
+    const prevEl = numbers_1[i - 1];
+    if (currentEl - prevEl !==1) {
+        numbers_1[i] = prevEl + 1;
+    }
+}
+
+console.log(numbers_1);
+
+// ЗАВДАННЯ 26. Напиши функцію, яка на основі користувачів, що поставили лайк фомує та повертає рядок.
+// [] - "no one likes this"
+// ["Peter"] - "Peter likes this"
+// ["Jakob", "Alex"] - "Jacob and Alex like this"
+// ["Max", "John", "Mark"] - "Max, John and Mark like this"
+// ["Alex","Jakob", "Mark", "Max"] - "Alex, Jakob and 2 others like this"
+
+// function createString(arr) {
+//     let string;
+//     if (!arr.length) {
+//         string = "no one likes this";
+//     } else if (arr.length === 1) {
+//         string = `${arr[0]} likes this`
+//     } else if (arr.length === 2) {
+//         string = `${arr[0]} and ${arr[1]} like this`
+//     } else if (arr.length === 3) {
+//         string = `${arr[0]}, ${arr[1]} and ${arr[2]} like this`
+//     } else if (arr.length > 3) {
+//         string = `${arr[0]}, ${arr[1]} and ${arr.length -2} others like this`
+//     }
+//     return string;
+// }
+
+function createString(arr) {
+    let string;
+    switch (arr.length) {
+        case 0:
+            string = "no one likes this";
+            break;
+        case 1:
+            string = `${arr[0]} likes this`;
+            break;
+        case 2:
+            string = `${arr[0]} and ${arr[1]} like this`;
+            break;
+        case 3:
+            string = `${arr[0]}, ${arr[1]} and ${arr[2]} like this`;
+            break;
+        default:
+            string = `${arr[0]}, ${arr[1]} and ${arr.length - 2} others like this`;
+    }
+    return string;
+}
+
+console.log(createString([]));
+console.log(createString(["Peter"]));
+console.log(createString(["Jakob", "Alex"]));
+console.log(createString(["Max", "John", "Mark"]));
+console.log(createString(["Alex","Jakob", "Mark", "Max"]));
