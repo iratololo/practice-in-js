@@ -704,4 +704,17 @@ console.log(createString([]));
 console.log(createString(["Peter"]));
 console.log(createString(["Jakob", "Alex"]));
 console.log(createString(["Max", "John", "Mark"]));
-console.log(createString(["Alex","Jakob", "Mark", "Max"]));
+console.log(createString(["Alex", "Jakob", "Mark", "Max"]));
+
+
+// ЗАВДАННЯ 27. Напиши функцію calcBMI(weight, height) яка розраховує та повертає індекс маси тіла людини.  
+
+function calcBMI(weight, height) {
+    weight = parseFloat(weight.replace(",", "."));
+    heigh = parseFloat(height.replace(",", '.'));
+    return (weight / Math.pow(height,2)).toFixed(1);
+
+}
+const bmi_1 = calcBMI('88,3', '1.75');
+
+console.log(bmi_1)
