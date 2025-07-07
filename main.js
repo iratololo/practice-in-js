@@ -718,3 +718,109 @@ function calcBMI(weight, height) {
 const bmi_1 = calcBMI('88,3', '1.75');
 
 console.log(bmi_1)
+
+// ЗАВДАННЯ 28. Напиши функцію min(a,b), яка повертає найменше з чисел.
+
+function minNum(a, b) {
+    return Math.min(a, b);
+    // return a > b ? b : a;
+}
+
+console.log(minNum(-40, 10));
+
+// ЗАВДАННЯ 29. Напиши функцію getRectArea(dimensions) для обчислення площі прямокутника зі сторонами, значення яких будуть передані до параметра dimensions у вигляді рядка, значення гарантовано розділені пробілом.
+
+function getRectArea(dimensions) {
+    dimensions = dimensions.split(" ");
+    const a = Number(dimensions[0]);
+    const b = Number(dimensions[1]);
+    return a * b;
+}
+
+console.log(getRectArea('8 11'))
+
+// ЗАВДАННЯ 30. Напиши функцію logItems(items), яка отримує масив та використовуючи цикл виводь для кожного елемента масиву повідомлення у форматі "номер - значення". Нумерація з одиниці.
+
+function logItems(items) {
+    for (let i = 0; i < items.length; i += 1){
+        console.log(`${i+1} - ${items[i]}`)
+    }
+}
+
+console.log(logItems(["Mango", "Poly", "Ajax"]))
+
+// ЗАВДАННЯ 31. Напиши функцію printContactsInfo(names, phones), яка виводить у консоль ім'я та номер користувача.
+
+function printContactsInfo(names, phones) {
+    names = names.split(", ");
+    phones = phones.split(",");
+    for (let i = 0; i < names.length, i < phones.length; i += 1){
+        console.log(`${names[i]} - ${phones[i]}`);
+    }
+}
+
+printContactsInfo('Jacob, William, Solomon, Artemis, Iryna', '80954610147, 80954612149, 80509022230, 80955026931');
+
+
+// ЗАВДАННЯ 32. Напиши функцію findLargestNumber(numbers) яка шукає найбільше число в масиві. 
+/** 
+ *!Переробити ще раз
+ */
+// function findLargestNumber(...numbers) {
+//     // const numbers = [...arguments];
+//     // const numbers = Array.from(arguments);
+//     let largestNumber = numbers[0];
+//     for (let i = 1; i < numbers.length; i += 1) {
+//         if (numbers[i] > largestNumber) {
+//             largestNumber = numbers[i];
+//         }
+//     }
+//     return largestNumber;
+// }
+
+// console.log(findLargestNumber(2, 17, 94, 1, 23, 37, 250));
+
+
+// function findLargestNumber(...numbers) {
+//     numbers = numbers.join(",").split(",");
+//     let largestNumber = Number(numbers[0]);
+//     for (let i = 1; i < numbers.length; i += 1) {
+//         numbers[i] = Number(numbers[i]);
+//         if (numbers[i] > largestNumber) {
+//             largestNumber = numbers[i];
+//         }
+//     }
+//     return largestNumber;
+// }
+
+
+function findLargestNumber() {
+    let max;
+
+    for (const num of arguments) {
+        if (typeof num === "number") {
+            max = num;
+            break;
+        }
+    }
+    for (const num of arguments) {
+        if (typeof num === "number") {
+            if (num > max) {
+                max = num;
+            }
+        } else {
+            let nestedMax = findLargestNumber(...num);
+            if (nestedMax > max) {
+                max = nestedMax;
+            }
+        }
+    }
+        
+    
+    return max;
+}
+
+console.log(findLargestNumber([ [1,3500], 1994, 11000],23, 37, 250,6700));
+
+
+// ЗАВДАННЯ 33. Напиши функцію findLargestNumber(numbers) яка шукає найбільше число в масиві.
