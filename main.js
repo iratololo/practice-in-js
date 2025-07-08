@@ -848,3 +848,32 @@ console.log(formatTime(70));
 console.log(formatTime(450));
 console.log(formatTime(1441));
 
+// ЗАВДАННЯ 35. Напиши функції для роботи з колекцією навчальних курсів, addCourse() - додає назву в кінець колекції, removeCourse() - видаляє, updateCourse() - змінює ім'я на нове
+
+const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+
+function addCourse(name) {
+    return courses.includes(name) ? 'Ви вже маєте такий курс' : courses.push(name);
+}
+
+function removeCourse(name) {
+    const idx = courses.indexOf(name);
+    return !!~idx ? courses.splice(idx,1) : 'Курс із таким ім\'ям не знайдено';
+}
+
+function updateCourse(oldName, newName) {
+    const idx = courses.indexOf(oldName);
+    return !!~idx ? courses.splice(idx,1, newName) : 'Курс із таким ім\'ям не знайдено';
+}
+
+console.log(addCourse('Express'));
+console.log(addCourse('CSS'));
+console.log(courses)
+
+console.log(removeCourse('React'));
+console.log(removeCourse('Vue'));
+console.log(courses)
+
+console.log(updateCourse('Python', 'ECMAScript'));
+console.log(updateCourse('JavaScript', 'ECMAScript'));
+console.log(courses)
