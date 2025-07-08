@@ -823,4 +823,28 @@ function findLargestNumber() {
 console.log(findLargestNumber([ [1,3500], 1994, 11000],23, 37, 250,6700));
 
 
-// ЗАВДАННЯ 33. Напиши функцію findLargestNumber(numbers) яка шукає найбільше число в масиві.
+// ЗАВДАННЯ 33. Напиши функцію calcAverage яка приймає довільну кількість аргументів і повертає їхнє середнє значення, усі аргументи - числа.
+
+function calcAverage() {
+    let sum = 0;
+    for (const item of arguments) {
+        sum += item;
+    }
+    return sum/arguments.length
+}
+
+console.log(calcAverage(14, 8, 2));
+
+
+// ЗАВДАННЯ 34. Напиши функцію formatTime(minutes) яка переведе minutes в рядок у форматі НН:ММ
+
+function formatTime(minutes) {
+    const hours = Math.floor(minutes / 60).toString();
+    const minute = (minutes % 60).toString();
+    return `${hours.padStart(2, "0")} : ${minute.padStart(2, "0")}`;
+}
+
+console.log(formatTime(70));
+console.log(formatTime(450));
+console.log(formatTime(1441));
+
