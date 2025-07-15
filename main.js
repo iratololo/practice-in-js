@@ -877,3 +877,22 @@ console.log(courses)
 console.log(updateCourse('Python', 'ECMAScript'));
 console.log(updateCourse('JavaScript', 'ECMAScript'));
 console.log(courses)
+
+
+
+// ЗАВДАННЯ 36. Напиши функції яка буде перевіряти чи кожен елемент масиву більше за вказане значення.
+
+const numbers_2 = [25, 12, 67, 40, 18];
+
+function checkValue(arr, num) {
+    let message = "Success";
+    for (const item of arr) {
+        if (item <= num) {
+            message = "Fail";
+            break;
+        }
+    }
+     return message
+}
+
+console.log(checkValue(numbers_2, 13))
