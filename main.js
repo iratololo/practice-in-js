@@ -895,4 +895,21 @@ function checkValue(arr, num) {
      return message
 }
 
-console.log(checkValue(numbers_2, 13))
+console.log(checkValue(numbers_2, 13));
+
+// ЗАВДАННЯ 36. Напиши функцію, яка буде розбивати початковий масив на потрібну кількість елементів, розділяючи на декілька масивів. Повертає масив масивів.
+
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function getCombination(arr, count) {
+    let result = [];
+    for (let i = 0; i < arr.length; i += count){
+        let item = arr.slice(i, i + count);
+        if (item.length === count) {
+            result.push(item)
+        }
+    }
+    return result;
+}
+
+console.log(getCombination(data, 3));
