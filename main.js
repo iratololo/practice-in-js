@@ -913,3 +913,29 @@ function getCombination(arr, count) {
 }
 
 console.log(getCombination(data, 3));
+
+
+
+
+const book = {
+    title: 'tololo',
+    author: 'Ira',
+    getBooks() {
+        // console.log(this);
+    },
+    getInf() {
+        const keys = [];
+        for (const key in this) {
+            if (typeof this[key] !== 'function') {
+                keys.push(key);
+            }
+        }
+        console.log(keys)
+    }
+}
+
+book.getInf();
+
+
+
+
