@@ -764,7 +764,7 @@ printContactsInfo('Jacob, William, Solomon, Artemis, Iryna', '80954610147, 80954
 
 // ЗАВДАННЯ 32. Напиши функцію findLargestNumber(numbers) яка шукає найбільше число в масиві. 
 /** 
- *!Переробити ще раз
+ *!Переробити ще раз (рекурсія)
  */
 // function findLargestNumber(...numbers) {
 //     // const numbers = [...arguments];
@@ -916,6 +916,8 @@ console.log(getCombination(data, 3));
 
 
 
+//* ---------------------------------------------------------------------------------------Objects
+
 
 const book = {
     title: 'tololo',
@@ -936,6 +938,91 @@ const book = {
 
 book.getInf();
 
+
+// ЗАВДАННЯ 37. Напиши скрипт, який до об'єкту юзер послідовно: додає поле, замінює значення поля, виводить вміст об♥єкту у форматі ключ:значення, використовуючи Object.keys nf for...of.
+
+const user = {
+    name: "Mango",
+    age: 20,
+    hobby: "html",
+    premium: true,
+};
+
+user.mood = "happy";
+user.hobby = "skydiving";
+user.premium = false;
+
+const newUser = Object.keys(user);
+console.log(newUser)
+for (const key of newUser) {
+    console.log(`${key} : ${user[key]}`);
+}
+
+// for (const key in user) {
+//     console.log(`${key} : ${user[key]}`);
+// }
+
+// ЗАВДАННЯ 38. Напиши скрипт для підсумування зарплат, якщо об'єкт порожній, то результат має бути 0.
+
+const salaries = {
+    // John: 100,
+    // Ann: 160,
+    // Pete: 130,
+}
+
+let sum = 0;
+
+const salaryArr = Object.values(salaries);
+for (const key of salaryArr) {
+    sum += key;
+}
+console.log(sum)
+
+
+// ЗАВДАННЯ 39. Напиши функцію calcTotalPrice(stones, stoneName), яка приймає масив об'єктів та рядок з назвою каменю. Рахує та повертає загальну вартість каміння з таким ім'ям.
+
+const stones = [{
+    name: "Смарагд",
+    price: 1300,
+    quantity: 4,
+},
+{
+    name: "Діамант",
+    price: 2700,
+    quantity: 3,
+},
+{
+    name: "Сапфір",
+    price: 400,
+    quantity: 7,
+},
+{
+    name: "Щебінь",
+    price: 200,
+    quantity: 2,
+},
+];
+
+function calcTotalPrice(stones, stoneName) {
+
+    let totalPrice = 0;
+
+    for (const item of stones) {
+        if (item.name === stoneName) {
+            totalPrice = item.price * item.quantity;
+        }
+    }
+
+    return totalPrice;
+}
+
+console.log(calcTotalPrice(stones, "Смарагд"));
+console.log(calcTotalPrice(stones, "Діамант"));
+console.log(calcTotalPrice(stones, "Сапфір"));
+console.log(calcTotalPrice(stones, "Щебінь"));
+
+
+// ЗАВДАННЯ 40. Напиши функцію calcTotalPrice(stones, stoneName), яка приймає масив об'єктів та рядок з назвою каменю. Рахує та повертає загальну вартість каміння з таким ім'ям.
 
 
 
