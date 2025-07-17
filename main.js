@@ -1003,26 +1003,121 @@ const stones = [{
 },
 ];
 
-function calcTotalPrice(stones, stoneName) {
+// function calcTotalPrice(stones, stoneName) {
 
-    let totalPrice = 0;
+//     let totalPrice = 0;
+
+//     for (const item of stones) {
+//         if (item.name === stoneName) {
+//             totalPrice = item.price * item.quantity;
+//             break;
+//         }
+//     }
+
+//     return totalPrice;
+// }
+
+function calcTotalPrice(stones, stoneName) {
 
     for (const item of stones) {
         if (item.name === stoneName) {
-            totalPrice = item.price * item.quantity;
+            return item.price * item.quantity;
         }
     }
 
-    return totalPrice;
+    return 'Not found';
 }
 
 console.log(calcTotalPrice(stones, "Смарагд"));
 console.log(calcTotalPrice(stones, "Діамант"));
 console.log(calcTotalPrice(stones, "Сапфір"));
 console.log(calcTotalPrice(stones, "Щебінь"));
+console.log(calcTotalPrice(stones, "abra"));
 
 
-// ЗАВДАННЯ 40. Напиши функцію calcTotalPrice(stones, stoneName), яка приймає масив об'єктів та рядок з назвою каменю. Рахує та повертає загальну вартість каміння з таким ім'ям.
+// ЗАВДАННЯ 40. Напиши скрипт управління особистим кабінетом інтернет банку. Є об'єкт account в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій. Типи транзакцій: покласти гроші чи зняти з рахунку. Кожна транзакція це об'єкт із властивостями id, type, amount.
+
+const Transaction = {
+    DEPOSIT: 'deposit',
+    WITHDRAW: 'wathdraw',
+}
+
+let idCounter = 1;
+
+const account = {
+    balance: 0,
+    transactions: [],
+    // Створює та повертає об'єкт транзакції, приймає суму та тип.
+    createTransaction(amount, type) {
+        return {
+            id: idCounter++,
+            type,
+            amount
+        }
+    },
+    // Відповідає за додавання суми до балансу, приймає суму, викликає createTransaction після чого додає його до історії транзакцій,
+    deposit(amount) {
+        this.balance += amount;
+        const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+        this.transactions.push(transaction);
+    },
+    // Відповідає за зняття суми з балансу, приймає сумуб викликає createTransaction після чого додає його до історії транзакцій. Якщо amount більша ніж поточний баланс - виводить повідомлення про те, що недостатньо коштів
+    withdraw(amount) {
+        if (amount > this.balance) {
+            console.log("not enough money");
+            return;
+        }
+        this.balance -= amount;
+        const transaction = this.createTransaction(amount, Transaction.WITHDRAW);
+        this.transactions.push(transaction);
+    },
+    // Повертає поточний баланс
+    getBalance() {
+        return this.balance;
+    },
+    // Шукає та повертає об'єкт транзакції по id
+    getTransactionDetails(id) {
+        for (const item of this.transactions) {
+            if (item.id === id) {
+                return item;
+            }
+        }
+    },
+    // Повертає певну кількість коштів певного типу транзакцій з усієї історії.
+    getTransactionTotal(type) {
+        let sum = 0;
+        for (const item of this.transactions) {
+            if (item.type === type) {
+                sum+=item.amount;
+            }
+        }
+        return sum;
+    },
+}
+
+// console.log(account.createTransaction(2000, Transaction.DEPOSIT))
+account.deposit(2000);
+account.deposit(3000);
+account.deposit(4000);
+account.deposit(100);
+console.log(account.transactions)
+console.log(account.balance)
+
+account.withdraw(1000);
+account.withdraw(400);
+account.withdraw(800);
+console.log(account.transactions)
+console.log(account.balance)
+// account.withdraw(5000);
+// console.log(account.transactions)
+// console.log(account.balance)
+
+console.log(account.getBalance())
+
+console.log(account.getTransactionDetails(2))
+
+console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+
 
 
 
