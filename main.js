@@ -1042,6 +1042,8 @@ const Transaction = {
     WITHDRAW: 'wathdraw',
 }
 
+Object.freeze(Transaction);
+
 let idCounter = 1;
 
 const account = {
@@ -1057,6 +1059,9 @@ const account = {
     },
     // Відповідає за додавання суми до балансу, приймає суму, викликає createTransaction після чого додає його до історії транзакцій,
     deposit(amount) {
+        if (amount <= 0) {
+            return "Error";
+        }
         this.balance += amount;
         const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
         this.transactions.push(transaction);
@@ -1082,6 +1087,7 @@ const account = {
                 return item;
             }
         }
+        return "not found";
     },
     // Повертає певну кількість коштів певного типу транзакцій з усієї історії.
     getTransactionTotal(type) {
@@ -1114,9 +1120,11 @@ console.log(account.balance)
 
 console.log(account.getBalance())
 
-console.log(account.getTransactionDetails(2))
+console.log(account.getTransactionDetails(145698))
 
 console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+
+
 
 
 
