@@ -1128,4 +1128,143 @@ console.log(account.getTransactionTotal(Transaction.WITHDRAW));
 
 
 
+// ЗАВДАННЯ 41. Напиши функцію, яка буде приймати три параметри та повертати об'єкт покупки.
+
+function createBusket(product, quantity, price) {
+    
+    return {
+        name: product,
+        price,
+        quantity,
+        totalPrice: price * quantity,
+    }
+}
+
+console.log(createBusket("apple", 100, 5));
+
+
+// ЗАВДАННЯ 42. Напиши функцію для ведення статистику комп'ютерного клубу, яка повертає рядок з інформацією про те скільки було користувачів та який середній час оренди комп'ютера.
+
+const players = {
+    Den: 60,
+    Kate: 130,
+    William: 45,
+    Matthew: 120,
+    Ethan: 40,
+    David:55,
+}
+
+function getTime(obj) {
+    const players = Object.keys(obj);
+    const counter = players.length;
+    let totalTime = 0;
+    for (const player of players) {
+        totalTime += obj[player];
+    }
+    return `Count of players ${counter}, average time ${totalTime/counter}`
+}
+
+
+// function getTime(obj) {
+//     const players = Object.entries(obj);
+//     const counter = players.length;
+//     let totalTime = 0;
+//     for (const player of players) {
+//         totalTime += player[1];
+//     }
+   
+//     return `Count of players ${counter}, average time ${totalTime/counter}`
+// }
+
+
+console.log(getTime(players));
+
+
+// ЗАВДАННЯ 43. Напиши функцію яка буде приймати масив та назву книги. Повертає імена юзерів, в яких є дана книга. Порахувати вік всіх юзерів, у котриє є ключ age
+
+const friends = [
+    { name: "Anna", books: ["Bible", "Harry Potter"], age: 21 },
+    { name: "Bob", books: ["War", "Romeo"], age: 26 },
+    { name: "Alice", books: ["War", "Romeo"], },
+    {name: "Iryna", books: ["Bible", "Harry Potter", "War", "Romeo"], age: 26},
+]
+
+
+function getUsers(arr, bookName) {
+    let users = [];
+    let totalAge = 0;
+    for (const user of arr) {
+        const { name, books, age } = user;
+        if (books.includes(bookName)) {
+            users.push(name)
+        }
+        if (user.hasOwnProperty("age")) {
+            totalAge += age;
+        }
+    }
+    console.log(totalAge);
+    return users.join(", ")
+}
+
+console.log(getUsers(friends, "Bible"));
+console.log(getUsers(friends, "War"));
+
+
+// ЗАВДАННЯ 44. Створи метод об'єкту, який буде приймати назву факультету та повертати список імен учнів. Створи метод об'єкту, який буде приймати назву факультету та повертати кількість очків факультету.
+
+const hogvarts = {
+    griffindor: [
+        {   name: "Harry",
+            points:17,
+        },
+        {   name: "Hermiona",
+            points:19,
+        },
+        {   name: "Ron",
+            points:14,
+        },
+    ],
+    slizerin: [
+        {   name: "Draco",
+            points:17,
+        },
+        {   name: "Goyl",
+            points:14,
+        },
+        {   name: "Crabbe",
+            points:5,
+        },
+    ],
+    getUserList(faculty) {
+        let students = [];
+        if (this.hasOwnProperty(faculty)) {
+            for (const student of this[faculty]) {
+                students.push(student.name);
+            }
+            return students.join(", ")
+        }
+        return `There is no such faculty`
+    },
+    getTotalPoints(faculty) {
+        let totalPoints = 0;
+        if (this.hasOwnProperty(faculty)) {
+            for (const student of this[faculty]) {
+                totalPoints += student.points;
+            }
+            return totalPoints;
+        }
+        return `There is no such faculty`
+    },
+}
+
+console.log(hogvarts.getUserList('griffindor'));
+console.log(hogvarts.getUserList('slizerin'));
+console.log(hogvarts.getUserList('sliz'));
+
+console.log(hogvarts.getTotalPoints('slizerin'));
+console.log(hogvarts.getTotalPoints('griffindor'));
+console.log(hogvarts.getTotalPoints('sliz'));
+
+
+
 
