@@ -1236,24 +1236,24 @@ const hogvarts = {
         },
     ],
     getUserList(faculty) {
-        let students = [];
-        if (this.hasOwnProperty(faculty)) {
-            for (const student of this[faculty]) {
-                students.push(student.name);
-            }
-            return students.join(", ")
+        if (!this.hasOwnProperty(faculty)) {
+            return `There is no such faculty`
         }
-        return `There is no such faculty`
+        let students = [];
+        for (const student of this[faculty]) {
+            students.push(student.name);
+        }
+        return students.join(", ")
     },
     getTotalPoints(faculty) {
-        let totalPoints = 0;
-        if (this.hasOwnProperty(faculty)) {
-            for (const student of this[faculty]) {
-                totalPoints += student.points;
-            }
-            return totalPoints;
+        if (!this.hasOwnProperty(faculty)) {
+           return `There is no such faculty`
         }
-        return `There is no such faculty`
+        let totalPoints = 0;
+        for (const student of this[faculty]) {
+            totalPoints += student.points;
+        }
+        return totalPoints;
     },
 }
 
@@ -1267,4 +1267,160 @@ console.log(hogvarts.getTotalPoints('sliz'));
 
 
 
+// ЗАВДАННЯ 45. Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
 
+// function calcBMI(weight, height) {
+//     const numericWeight = Number(weight.replace(",", "."));
+//     const numericHeight = Number(height.replace(",", "."));
+//     return Number((numericWeight / numericHeight ** 2).toFixed(1));
+// }
+
+// calcBMI('88.3', '1.75');
+
+function calcBmi({ weight, height }) {
+    const numericWeight = Number(weight.replace(",","."));
+    const numericHeight = Number(height.replace(",","."));
+    return Number((numericWeight / numericHeight ** 2).toFixed(1));
+}
+
+calcBmi({ weight: '88,3', height: '1.75' });
+console.log(calcBmi({ weight: '88.3', height: '1.75' }));
+
+
+
+// ЗАВДАННЯ 46. Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
+
+// function printContacts(names, phones) {
+//     names = names.split(", ");
+//     phones = phones.split(",");
+//     for (let i = 0; i < names.length, i < phones.length; i += 1){
+//         console.log(`${names[i]} - ${phones[i]}`);
+//     }
+// }
+
+// printContacts('Jacob, William, Solomon, Artemis, Iryna', '80954610147, 80954612149, 80509022230, 80955026931');
+
+/**
+ * Bиводить у консоль ім'я та номер користувача.
+ * @param {Object} obj 
+ */
+
+function printContacts({names, phones}) {
+    names = names.split(", ");
+    phones = phones.split(",");
+    for (let i = 0; i < names.length, i < phones.length; i += 1){
+        console.log(`${names[i]} - ${phones[i]}`);
+    }
+}
+
+printContacts({
+    names: 'Jacob, William, Solomon, Artemis, Iryna',
+    phones: '80954610147, 80954612149, 80509022230, 80955026931',
+});
+
+
+
+// ЗАВДАННЯ 47. Перепиши функцію так, щоб вона приймала один об'єкт параметрів замість набору незалежних аргументів.
+
+// function getBotReport(companyName, repairBots, defenceBots) {
+//     return `${companyName} has ${repairBots + defenceBots} bots in stock`;
+// }
+
+// getBotReport("Cyberdyne Systems", 150, 50);
+
+/**
+ * 
+ * @param {Object} obj 
+ * @returns {String} BotReport
+ */
+
+function getBotReport({companyName, repairBots, defenceBots}) {
+    return `${companyName} has ${repairBots + defenceBots} bots in stock`;
+}
+
+console.log(getBotReport({companyName:"Cyberdyne Systems",repairBots: 150, defenceBots: 50}))
+
+
+// ЗАВДАННЯ 48. Перепиши функцію так, щоб вона приймала один об'єкт параметрів зз властивостями companyName та stock та виводила повідомлення про кількість товарів будь-якої компанії.
+
+// function getStockReport(companyName, stock) {
+//     let total = 0;
+//     for (const value of Object.values(stock)) {
+//         total += value;
+//     }
+//     return `${companyName} has ${total} items in stock`;
+// }
+
+
+// console.log(getStockReport("Cyberdyne Systems", { repairBots: 150, defenceBots: 50 }));
+// console.log(getStockReport("Belacci", { shoes: 20, skirts: 10, hats:5, }));
+
+/**
+ * 
+ * @param {Object} obj 
+ * @returns {String} StockReport
+ */
+
+function getStockReport({companyName, stock}) {
+    let total = 0;
+    for (const value of Object.values(stock)) {
+        total += value;
+    }
+    return `${companyName} has ${total} items in stock`;
+}
+
+
+console.log(getStockReport({companyName:"Cyberdyne Systems", stock: { repairBots: 150, defenceBots: 50 }}));
+console.log(getStockReport({ companyName: "Belacci",stock: { shoes: 20, skirts: 10, hats:5, }}));
+
+
+
+// ЗАВДАННЯ 49. Доповни функцію так, щоб вона повертала об'єкт контакту з доданими властивостями id та createAt та list зі значенням default, якщо в зфкешфд сщтефсе немає такої властивості.
+
+/**
+ * 
+ * @param {Object} partialContact 
+ * @returns {Object} new Contact
+ */
+
+function createContact(partialContact) {
+    return {
+        id: generateId(),
+        createAt: new Date(),
+        list: "default",
+        ...partialContact,
+    }
+}
+
+function generateId() {
+    return "_" + Math.random().toString(36).substring(2, 9);
+}
+
+console.log(createContact({ name: "mango", email: "mango@mail.com", list: "friends" }));
+console.log(createContact({ name: "poly", email: "poly@mail.com", }));
+
+
+
+
+// ЗАВДАННЯ 50. Напиши функцію transformUserName(user) так, щоб вона повертала новий об'єкт із властивістю fullName замість firstName та LastName.
+
+/**
+ * 
+ * @param {Object} obj 
+ * @returns {Object} user name
+ */
+
+function transformUserName({firstName, lastName, ...props}) {
+    return {
+        ...props,
+        fullName: `${firstName} ${lastName}`,
+ }
+}
+
+console.log(transformUserName({
+    id: 1,
+    firstName: "Iryna",
+    lastName: "Tololo",
+    email: "tololo@mail.com",
+    friendCount:3,
+}))
