@@ -19,45 +19,45 @@ Number.isNaN(' '); //
 
 //TODO: isNaN()
 
-console.log(isNaN('02') );  //
-console.log(isNaN(null) );  //
-console.log(isNaN('6nan') );  //
-console.log(isNaN(9) );  //
-console.log(isNaN('') );  //
-console.log(isNaN([]) );  //
-console.log(isNaN({}) );  //
-console.log(isNaN(new Date) );  //
-console.log(isNaN('NaN')); //
+// console.log(isNaN('02') );  //
+// console.log(isNaN(null) );  //
+// console.log(isNaN('6nan') );  //
+// console.log(isNaN(9) );  //
+// console.log(isNaN('') );  //
+// console.log(isNaN([]) );  //
+// console.log(isNaN({}) );  //
+// console.log(isNaN(new Date) );  //
+// console.log(isNaN('NaN')); //
 
 
 
 //TODO: Number.parseFloat()
 
-Number.parseFloat('2.15'); //
-Number.parseFloat('2.15 '); //
-Number.parseFloat(' 2.15 '); //
-Number.parseFloat('2.15 text'); //
-Number.parseFloat('text 2.15'); //
-Number.parseFloat('text');
-Number.parseFloat(); //
+// Number.parseFloat('2.15'); //
+// Number.parseFloat('2.15 '); //
+// Number.parseFloat(' 2.15 '); //
+// Number.parseFloat('2.15 text'); //
+// Number.parseFloat('text 2.15'); //
+// Number.parseFloat('text');
+// Number.parseFloat(); //
 
 
 //TODO: Number.parseInt()
 
-Number.parseInt('12.1'); //
-Number.parseInt('12.'); //
-Number.parseInt('12gh'); //
-Number.parseInt('12 text'); //
-Number.parseInt("123e-2"); //
-Number.parseInt("A", 16); //
-Number.parseInt("a", 16); //
-Number.parseInt( "A"); //
-Number.parseInt('text 12'); //
-Number.parseInt('text'); //
-Number.parseInt({}); //
-Number.parseInt([]); //
-Number.parseInt(''); //
-Number.parseInt(true); //
+// Number.parseInt('12.1'); //
+// Number.parseInt('12.'); //
+// Number.parseInt('12gh'); //
+// Number.parseInt('12 text'); //
+// Number.parseInt("123e-2"); //
+// Number.parseInt("A", 16); //
+// Number.parseInt("a", 16); //
+// Number.parseInt( "A"); //
+// Number.parseInt('text 12'); //
+// Number.parseInt('text'); //
+// Number.parseInt({}); //
+// Number.parseInt([]); //
+// Number.parseInt(''); //
+// Number.parseInt(true); //
 
 
 
@@ -65,22 +65,22 @@ Number.parseInt(true); //
 
 var n=2.567890431;
 
-n.toFixed(); //
-n.toFixed(1); //
-n.toFixed(2); //
-n.toFixed(3); //
-n.toFixed(4); //
-n.toFixed(5); //
-n.toFixed(6); //
-n.toFixed(7); //
-n.toFixed(8); //
-n.toFixed(9); //
-n.toFixed(10); //
-n.toFixed(11); //
-n.toFixed(12); //
-n.toFixed(true); //
-n.toFixed(false); //
-n.toFixed("2"); //
+// n.toFixed(); //
+// n.toFixed(1); //
+// n.toFixed(2); //
+// n.toFixed(3); //
+// n.toFixed(4); //
+// n.toFixed(5); //
+// n.toFixed(6); //
+// n.toFixed(7); //
+// n.toFixed(8); //
+// n.toFixed(9); //
+// n.toFixed(10); //
+// n.toFixed(11); //
+// n.toFixed(12); //
+// n.toFixed(true); //
+// n.toFixed(false); //
+// n.toFixed("2"); //
 
 
 
@@ -119,17 +119,17 @@ n.toFixed("2"); //
 
 //TODO: Math.round()
 
-console.log(Math.round(2.3)); //
-console.log(Math.round(2.5)); //
-console.log(Math.round(2.6)); //
-console.log(Math.round(-2.3)); //
-console.log(Math.round(-2.5)); //
-console.log(Math.round(-2.7)); //
+// console.log(Math.round(2.3)); //
+// console.log(Math.round(2.5)); //
+// console.log(Math.round(2.6)); //
+// console.log(Math.round(-2.3)); //
+// console.log(Math.round(-2.5)); //
+// console.log(Math.round(-2.7)); //
 
 
 //TODO: Math.floor()
 
-console.log('Math.floor() :>> ', Math.floor());
+// console.log('Math.floor() :>> ', Math.floor());
 
 /*
 0.8 ==> 
@@ -192,14 +192,14 @@ console.log('Math.floor() :>> ', Math.floor());
 
 
 
-console.log('typeof NaN :>> ', typeof NaN);
+// console.log('typeof NaN :>> ', typeof NaN);
 
 
-console.log('Math.pow(2,3) :>> ', Math.pow(2, 3));
-console.log('Math.random() :>> ', Math.random());
+// console.log('Math.pow(2,3) :>> ', Math.pow(2, 3));
+// console.log('Math.random() :>> ', Math.random());
 
-console.log('Number("25.6px") :>> ', Number("25.6px"));
-console.log('("25.6px").parseInt() :>> ', Number.parseInt("25.6px"));
+// console.log('Number("25.6px") :>> ', Number("25.6px"));
+// console.log('("25.6px").parseInt() :>> ', Number.parseInt("25.6px"));
 
 
 
@@ -213,7 +213,7 @@ let squaredHight = Math.pow(Number(height),2);
 
 // const bmi = Number(weight.replace(",",".") / Math.pow(height,2)).toFixed(1);
 const bmi = Number((weight / squaredHight).toFixed(1));
-console.log('bmi :>> ', bmi);
+// console.log('bmi :>> ', bmi);
 
 
 
@@ -226,7 +226,7 @@ const totalMinutes = 1441;
 const hours =  Math.floor(totalMinutes / 60);
 const min = totalMinutes % 60;
 const clock = `${hours.toString().padStart(2,"0")}:${min.toString().padStart(2,"0")}`;
-console.log('clock :>> ', clock);
+// console.log('clock :>> ', clock);
 
 
 // ЗАВДАННЯ 3. Напиши скрипт, який просить користувача ввести число і степінь, підносить число до степіня і повертає значення.
@@ -267,10 +267,12 @@ const a = 120;
 const b = 100;
 
 if (a > 100 && b > 100) {
-    console.log(Math.max(a,b));
+    // console.log(Math.max(a,b));
 } else {
-    console.log(b + 512);
+    // console.log(b + 512);
 }
+
+
 
 
 // ЗАВДАННЯ 7. Напиши скрипт, який перевіряє чи закінчується значення змінної символом /.Якщо ні - додай до кінця значення цeй символ.
@@ -281,7 +283,9 @@ if (!link.endsWith("/")) {
     link = link + "/"
 } 
 
-console.log('link :>> ', link);
+// console.log('link :>> ', link);
+
+
 
 // ЗАВДАННЯ 8. Напиши скрипт, який перевіряє чи закінчується значення змінної символом /.Якщо ні - додай до кінця значення цeй символ,але тільки у тому випадку, якщо в змінної є підрядок "my-site".
 
@@ -291,7 +295,8 @@ if (!link2.endsWith("/") && link2.includes("my-site")) {
     link2 += "/"
 }
 
-console.log('link2 :>> ', link2);
+// console.log('link2 :>> ', link2);
+
 
 // ЗАВДАННЯ 9. Напиши скрипт для відображення часу дедлайну задачі проекту.
 // Якщо до дедлайну 0 днів - виведи рядок "Сьогодні"
@@ -305,7 +310,7 @@ if (daysUntilDeadline) {
     if (daysUntilDeadline === 1) {
         console.log("Завтра");
     } else if (daysUntilDeadline === 2) {
-        console.log("Післязавтра");
+        // console.log("Післязавтра");
     } else if (daysUntilDeadline > 3) {
         console.log("Дата в майбутньому");
     }
@@ -321,7 +326,7 @@ switch (daysUntilDeadline) {
         console.log("Завтра");
         break;
     case 2:
-        console.log("Післязавтра");
+        // console.log("Післязавтра");
         break;
     default:
         console.log("Дата в майбутньому");
@@ -334,7 +339,7 @@ const maxNumber = 100;
 
 for (let i = minNumber; i <= maxNumber; i += 1) {
     if (!(i % 5)) {
-        console.log('i ', i);
+        // console.log('i ', i);
     }
 }
 
@@ -365,6 +370,9 @@ for (let i = minNumber; i <= maxNumber; i += 1) {
 // }
 // }
 
+
+
+
 // ЗАВДАННЯ 12. Створи світлофор використовуючи конструкцію Switch, в prompt юзер вводить колір, який він бачить і має отримати повідомлення з дією.
 
 // const color = prompt("What color do you see?")?.toLowerCase();
@@ -382,6 +390,8 @@ for (let i = minNumber; i <= maxNumber; i += 1) {
 //     default:
 //         console.log("action be careful");
 // }
+
+
 
 
 // ЗАВДАННЯ 13. Створи логіку для перевірки правильних відповідей на загадки.
@@ -433,17 +443,17 @@ const array = [1, "Hello", null, true, [1, 2, 3]];
 for (let i = 0; i < array.length; i += 1){
     if (Array.isArray(array[i])) {
         for (let j = 0; j < array[i].length; j += 1){
-            console.log(array[i][j])
+            // console.log(array[i][j])
         }
         continue;
     }
-    console.log(array[i])
+    // console.log(array[i])
 }
 
 let i = 0;
 
 while (i < array.length) {
-    console.log('while',array[i]);
+    // console.log('while',array[i]);
     i += 1;
 }
 
@@ -454,9 +464,9 @@ while (i < array.length) {
 const values = '8 11';
 
 const arr = values.split(" ");
-console.log(arr)
+// console.log(arr)
 const area = Number(arr[0]) * Number(arr[1]);
-console.log(area);
+// console.log(area);
 
 
 
@@ -465,11 +475,11 @@ console.log(area);
 const fruits = ['apple', 'grape', 'peach', 'banana', 'lemon'];
 
 for (let i = 0; i < fruits.length; i += 1) {
-    console.log(`${i+1}: ${fruits[i]}`);
+    // console.log(`${i+1}: ${fruits[i]}`);
 }
 
 for (let i = 0, num = 1; i < fruits.length; i += 1, num += 1) {
-    console.log(`${num}: ${fruits[i]}`);
+    // console.log(`${num}: ${fruits[i]}`);
 }
 
 
@@ -483,7 +493,7 @@ names = names.split(", ");
 phones = phones.split(", ");
 
 for (let i = 0; i < names.length, i< phones.length; i += 1) {
-     console.log(`${names[i]}: ${phones[i]}`);
+    //  console.log(`${names[i]}: ${phones[i]}`);
 }
 
 
@@ -493,7 +503,7 @@ for (let i = 0; i < names.length, i< phones.length; i += 1) {
 let string = "Welcome to the future";
 
 const result = string.split(" ").slice(1, -1).join(" ");
-console.log(result)
+// console.log(result)
 
 
 
@@ -501,7 +511,8 @@ console.log(result)
 
 let string_2 = "Welcome to the future";
 string_2 = string_2.split("").reverse().join("");
-console.log(string_2);
+// console.log(string_2);
+
 
 
 
@@ -547,7 +558,9 @@ function bubbleSort(arr) {
 
 }
 
-console.log(bubbleSort(langs))
+// console.log(bubbleSort(langs))
+
+
 
 
 // ЗАВДАННЯ 20. Напиши скрипт пошуку найменшого числа в масиві.
@@ -563,7 +576,10 @@ for (let i = 0; i < numbers.length; i += 1){
 
 }
 
-console.log('minNumbers :>> ', minNumbers);
+// console.log('minNumbers :>> ', minNumbers);
+
+
+
 
 // ЗАВДАННЯ 21. Напиши скрипт, який буде перебирати масив та видаляти з нього всі елементи, що не є типом даних number.
 
@@ -583,7 +599,10 @@ for (let i = arr_1.length-1; i >= 0; i -= 1) {
 }
 
 
-console.log(arr_1);
+// console.log(arr_1);
+
+
+
 
 // ЗАВДАННЯ 22. Напиши функцію, яка буде приймати один параметр. Функція повинна відібрати з масиву тільки ті елементи, що дублюються та повернути їх у вигляді нового масиву як результат виконання.
 
@@ -612,7 +631,10 @@ function getCommonElements(arr) {
 }
 
 
-console.log(getCommonElements([1, 2, 3, 2, 1, 17, 1, 19]));
+// console.log(getCommonElements([1, 2, 3, 2, 1, 17, 1, 19]));
+
+
+
 
 // ЗАВДАННЯ 23. Напиши функцію, яка буде приймати два параметри. ПЕрший - масив всіх юзерів, другий - масив з чоловічими іменами. Функція повинна відібрати з масиву всіх юзерів лише жіночі імена та повернути їх у результаті свого виконання.
 
@@ -629,7 +651,10 @@ function getWomen(users, men) {
     return women;
 }
 
-console.log(getWomen(users, men));
+// console.log(getWomen(users, men));
+
+
+
 
 // ЗАВДАННЯ 24. Напиши скрипт, який розгортає рядок і виводить його в консоль.
 
@@ -639,7 +664,10 @@ function getReverseString(string) {
     console.log(result);
 }
 
-getReverseString('Welcome to the future');
+// getReverseString('Welcome to the future');
+
+
+
 
 // ЗАВДАННЯ 25. Напиши скрипт, який буде перевіряти чи елементи в масиві розташовані в порядку зростання, якщо ні - то замінити елементи на вірні.
 
@@ -654,7 +682,10 @@ for (let i = 1; i < numbers_1.length; i += 1){
     }
 }
 
-console.log(numbers_1);
+// console.log(numbers_1);
+
+
+
 
 // ЗАВДАННЯ 26. Напиши функцію, яка на основі користувачів, що поставили лайк фомує та повертає рядок.
 // [] - "no one likes this"
@@ -700,11 +731,14 @@ function createString(arr) {
     return string;
 }
 
-console.log(createString([]));
-console.log(createString(["Peter"]));
-console.log(createString(["Jakob", "Alex"]));
-console.log(createString(["Max", "John", "Mark"]));
-console.log(createString(["Alex", "Jakob", "Mark", "Max"]));
+// console.log(createString([]));
+// console.log(createString(["Peter"]));
+// console.log(createString(["Jakob", "Alex"]));
+// console.log(createString(["Max", "John", "Mark"]));
+// console.log(createString(["Alex", "Jakob", "Mark", "Max"]));
+
+
+
 
 
 // ЗАВДАННЯ 27. Напиши функцію calcBMI(weight, height) яка розраховує та повертає індекс маси тіла людини.  
@@ -717,7 +751,9 @@ function calcBMI(weight, height) {
 }
 const bmi_1 = calcBMI('88,3', '1.75');
 
-console.log(bmi_1)
+// console.log(bmi_1)
+
+
 
 // ЗАВДАННЯ 28. Напиши функцію min(a,b), яка повертає найменше з чисел.
 
@@ -726,7 +762,10 @@ function minNum(a, b) {
     // return a > b ? b : a;
 }
 
-console.log(minNum(-40, 10));
+// console.log(minNum(-40, 10));
+
+
+
 
 // ЗАВДАННЯ 29. Напиши функцію getRectArea(dimensions) для обчислення площі прямокутника зі сторонами, значення яких будуть передані до параметра dimensions у вигляді рядка, значення гарантовано розділені пробілом.
 
@@ -737,7 +776,9 @@ function getRectArea(dimensions) {
     return a * b;
 }
 
-console.log(getRectArea('8 11'))
+// console.log(getRectArea('8 11'))
+
+
 
 // ЗАВДАННЯ 30. Напиши функцію logItems(items), яка отримує масив та використовуючи цикл виводь для кожного елемента масиву повідомлення у форматі "номер - значення". Нумерація з одиниці.
 
@@ -747,7 +788,9 @@ function logItems(items) {
     }
 }
 
-console.log(logItems(["Mango", "Poly", "Ajax"]))
+// console.log(logItems(["Mango", "Poly", "Ajax"]))
+
+
 
 // ЗАВДАННЯ 31. Напиши функцію printContactsInfo(names, phones), яка виводить у консоль ім'я та номер користувача.
 
@@ -759,7 +802,7 @@ function printContactsInfo(names, phones) {
     }
 }
 
-printContactsInfo('Jacob, William, Solomon, Artemis, Iryna', '80954610147, 80954612149, 80509022230, 80955026931');
+// printContactsInfo('Jacob, William, Solomon, Artemis, Iryna', '80954610147, 80954612149, 80509022230, 80955026931');
 
 
 // ЗАВДАННЯ 32. Напиши функцію findLargestNumber(numbers) яка шукає найбільше число в масиві. 
@@ -820,7 +863,7 @@ function findLargestNumber() {
     return max;
 }
 
-console.log(findLargestNumber([ [1,3500], 1994, 11000],23, 37, 250,6700));
+// console.log(findLargestNumber([ [1,3500], 1994, 11000],23, 37, 250,6700));
 
 
 // ЗАВДАННЯ 33. Напиши функцію calcAverage яка приймає довільну кількість аргументів і повертає їхнє середнє значення, усі аргументи - числа.
@@ -833,7 +876,7 @@ function calcAverage() {
     return sum/arguments.length
 }
 
-console.log(calcAverage(14, 8, 2));
+// console.log(calcAverage(14, 8, 2));
 
 
 // ЗАВДАННЯ 34. Напиши функцію formatTime(minutes) яка переведе minutes в рядок у форматі НН:ММ
@@ -844,9 +887,9 @@ function formatTime(minutes) {
     return `${hours.padStart(2, "0")} : ${minute.padStart(2, "0")}`;
 }
 
-console.log(formatTime(70));
-console.log(formatTime(450));
-console.log(formatTime(1441));
+// console.log(formatTime(70));
+// console.log(formatTime(450));
+// console.log(formatTime(1441));
 
 // ЗАВДАННЯ 35. Напиши функції для роботи з колекцією навчальних курсів, addCourse() - додає назву в кінець колекції, removeCourse() - видаляє, updateCourse() - змінює ім'я на нове
 
@@ -866,17 +909,17 @@ function updateCourse(oldName, newName) {
     return !!~idx ? courses.splice(idx,1, newName) : 'Курс із таким ім\'ям не знайдено';
 }
 
-console.log(addCourse('Express'));
-console.log(addCourse('CSS'));
-console.log(courses)
+// console.log(addCourse('Express'));
+// console.log(addCourse('CSS'));
+// console.log(courses)
 
-console.log(removeCourse('React'));
-console.log(removeCourse('Vue'));
-console.log(courses)
+// console.log(removeCourse('React'));
+// console.log(removeCourse('Vue'));
+// console.log(courses)
 
-console.log(updateCourse('Python', 'ECMAScript'));
-console.log(updateCourse('JavaScript', 'ECMAScript'));
-console.log(courses)
+// console.log(updateCourse('Python', 'ECMAScript'));
+// console.log(updateCourse('JavaScript', 'ECMAScript'));
+// console.log(courses)
 
 
 
@@ -895,7 +938,7 @@ function checkValue(arr, num) {
      return message
 }
 
-console.log(checkValue(numbers_2, 13));
+// console.log(checkValue(numbers_2, 13));
 
 // ЗАВДАННЯ 36. Напиши функцію, яка буде розбивати початковий масив на потрібну кількість елементів, розділяючи на декілька масивів. Повертає масив масивів.
 
@@ -912,7 +955,7 @@ function getCombination(arr, count) {
     return result;
 }
 
-console.log(getCombination(data, 3));
+// console.log(getCombination(data, 3));
 
 
 
@@ -936,7 +979,7 @@ const book = {
     }
 }
 
-book.getInf();
+// book.getInf();
 
 
 // ЗАВДАННЯ 37. Напиши скрипт, який до об'єкту юзер послідовно: додає поле, замінює значення поля, виводить вміст об♥єкту у форматі ключ:значення, використовуючи Object.keys nf for...of.
@@ -953,9 +996,9 @@ user.hobby = "skydiving";
 user.premium = false;
 
 const newUser = Object.keys(user);
-console.log(newUser)
+
 for (const key of newUser) {
-    console.log(`${key} : ${user[key]}`);
+    // console.log(`${key} : ${user[key]}`);
 }
 
 // for (const key in user) {
@@ -976,7 +1019,7 @@ const salaryArr = Object.values(salaries);
 for (const key of salaryArr) {
     sum += key;
 }
-console.log(sum)
+// console.log(sum)
 
 
 // ЗАВДАННЯ 39. Напиши функцію calcTotalPrice(stones, stoneName), яка приймає масив об'єктів та рядок з назвою каменю. Рахує та повертає загальну вартість каміння з таким ім'ям.
@@ -1028,11 +1071,11 @@ function calcTotalPrice(stones, stoneName) {
     return 'Not found';
 }
 
-console.log(calcTotalPrice(stones, "Смарагд"));
-console.log(calcTotalPrice(stones, "Діамант"));
-console.log(calcTotalPrice(stones, "Сапфір"));
-console.log(calcTotalPrice(stones, "Щебінь"));
-console.log(calcTotalPrice(stones, "abra"));
+// console.log(calcTotalPrice(stones, "Смарагд"));
+// console.log(calcTotalPrice(stones, "Діамант"));
+// console.log(calcTotalPrice(stones, "Сапфір"));
+// console.log(calcTotalPrice(stones, "Щебінь"));
+// console.log(calcTotalPrice(stones, "abra"));
 
 
 // ЗАВДАННЯ 40. Напиши скрипт управління особистим кабінетом інтернет банку. Є об'єкт account в якому необхідно реалізувати методи для роботи з балансом та історією транзакцій. Типи транзакцій: покласти гроші чи зняти з рахунку. Кожна транзакція це об'єкт із властивостями id, type, amount.
@@ -1106,23 +1149,23 @@ account.deposit(2000);
 account.deposit(3000);
 account.deposit(4000);
 account.deposit(100);
-console.log(account.transactions)
-console.log(account.balance)
+// console.log(account.transactions)
+// console.log(account.balance)
 
 account.withdraw(1000);
 account.withdraw(400);
 account.withdraw(800);
-console.log(account.transactions)
-console.log(account.balance)
+// console.log(account.transactions)
+// console.log(account.balance)
 // account.withdraw(5000);
 // console.log(account.transactions)
 // console.log(account.balance)
 
-console.log(account.getBalance())
+// console.log(account.getBalance())
 
-console.log(account.getTransactionDetails(145698))
+// console.log(account.getTransactionDetails(145698))
 
-console.log(account.getTransactionTotal(Transaction.WITHDRAW));
+// console.log(account.getTransactionTotal(Transaction.WITHDRAW));
 
 
 
@@ -1140,7 +1183,7 @@ function createBusket(product, quantity, price) {
     }
 }
 
-console.log(createBusket("apple", 100, 5));
+// console.log(createBusket("apple", 100, 5));
 
 
 // ЗАВДАННЯ 42. Напиши функцію для ведення статистику комп'ютерного клубу, яка повертає рядок з інформацією про те скільки було користувачів та який середній час оренди комп'ютера.
@@ -1177,7 +1220,7 @@ function getTime(obj) {
 // }
 
 
-console.log(getTime(players));
+// console.log(getTime(players));
 
 
 // ЗАВДАННЯ 43. Напиши функцію яка буде приймати масив та назву книги. Повертає імена юзерів, в яких є дана книга. Порахувати вік всіх юзерів, у котриє є ключ age
@@ -1206,8 +1249,8 @@ function getUsers(arr, bookName) {
     return users.join(", ")
 }
 
-console.log(getUsers(friends, "Bible"));
-console.log(getUsers(friends, "War"));
+// console.log(getUsers(friends, "Bible"));
+// console.log(getUsers(friends, "War"));
 
 
 // ЗАВДАННЯ 44. Створи метод об'єкту, який буде приймати назву факультету та повертати список імен учнів. Створи метод об'єкту, який буде приймати назву факультету та повертати кількість очків факультету.
@@ -1257,13 +1300,13 @@ const hogvarts = {
     },
 }
 
-console.log(hogvarts.getUserList('griffindor'));
-console.log(hogvarts.getUserList('slizerin'));
-console.log(hogvarts.getUserList('sliz'));
+// console.log(hogvarts.getUserList('griffindor'));
+// console.log(hogvarts.getUserList('slizerin'));
+// console.log(hogvarts.getUserList('sliz'));
 
-console.log(hogvarts.getTotalPoints('slizerin'));
-console.log(hogvarts.getTotalPoints('griffindor'));
-console.log(hogvarts.getTotalPoints('sliz'));
+// console.log(hogvarts.getTotalPoints('slizerin'));
+// console.log(hogvarts.getTotalPoints('griffindor'));
+// console.log(hogvarts.getTotalPoints('sliz'));
 
 
 
@@ -1283,8 +1326,8 @@ function calcBmi({ weight, height }) {
     return Number((numericWeight / numericHeight ** 2).toFixed(1));
 }
 
-calcBmi({ weight: '88,3', height: '1.75' });
-console.log(calcBmi({ weight: '88.3', height: '1.75' }));
+// calcBmi({ weight: '88,3', height: '1.75' });
+// console.log(calcBmi({ weight: '88.3', height: '1.75' }));
 
 
 
@@ -1313,10 +1356,10 @@ function printContacts({names, phones}) {
     }
 }
 
-printContacts({
-    names: 'Jacob, William, Solomon, Artemis, Iryna',
-    phones: '80954610147, 80954612149, 80509022230, 80955026931',
-});
+// printContacts({
+//     names: 'Jacob, William, Solomon, Artemis, Iryna',
+//     phones: '80954610147, 80954612149, 80509022230, 80955026931',
+// });
 
 
 
@@ -1338,7 +1381,7 @@ function getBotReport({companyName, repairBots, defenceBots}) {
     return `${companyName} has ${repairBots + defenceBots} bots in stock`;
 }
 
-console.log(getBotReport({companyName:"Cyberdyne Systems",repairBots: 150, defenceBots: 50}))
+// console.log(getBotReport({companyName:"Cyberdyne Systems",repairBots: 150, defenceBots: 50}))
 
 
 // ЗАВДАННЯ 48. Перепиши функцію так, щоб вона приймала один об'єкт параметрів зз властивостями companyName та stock та виводила повідомлення про кількість товарів будь-якої компанії.
@@ -1370,8 +1413,8 @@ function getStockReport({companyName, stock}) {
 }
 
 
-console.log(getStockReport({companyName:"Cyberdyne Systems", stock: { repairBots: 150, defenceBots: 50 }}));
-console.log(getStockReport({ companyName: "Belacci",stock: { shoes: 20, skirts: 10, hats:5, }}));
+// console.log(getStockReport({companyName:"Cyberdyne Systems", stock: { repairBots: 150, defenceBots: 50 }}));
+// console.log(getStockReport({ companyName: "Belacci",stock: { shoes: 20, skirts: 10, hats:5, }}));
 
 
 
@@ -1396,8 +1439,8 @@ function generateId() {
     return "_" + Math.random().toString(36).substring(2, 9);
 }
 
-console.log(createContact({ name: "mango", email: "mango@mail.com", list: "friends" }));
-console.log(createContact({ name: "poly", email: "poly@mail.com", }));
+// console.log(createContact({ name: "mango", email: "mango@mail.com", list: "friends" }));
+// console.log(createContact({ name: "poly", email: "poly@mail.com", }));
 
 
 
@@ -1417,10 +1460,168 @@ function transformUserName({firstName, lastName, ...props}) {
  }
 }
 
-console.log(transformUserName({
+// console.log(transformUserName({
+//     id: 1,
+//     firstName: "Iryna",
+//     lastName: "Tololo",
+//     email: "tololo@mail.com",
+//     friendCount:3,
+// }))
+
+
+
+// ЗАВДАННЯ 51. Деструктуризуй об'єкт таким чином, щоб отримати name, surname, username.
+
+const user_1 = {
     id: 1,
-    firstName: "Iryna",
-    lastName: "Tololo",
-    email: "tololo@mail.com",
-    friendCount:3,
-}))
+    username: "harry_potter",
+    profile: {
+        name: "harry",
+        surname: "potter",
+        age:25,
+    }
+}
+
+const { username, profile: { name, surname } } = user_1;
+// console.log(username, name, surname);
+
+
+
+// ЗАВДАННЯ 52. Допиши функцію таким чином, щоб кожна властивість об'єкта була незалежним параметром.
+
+const product = {
+    name: "Smart TV",
+    price: 25000,
+    category: "Electronics",
+    details: {
+        brand: "Samsung",
+        color: "Black",
+        weight:15.5,
+    }
+}
+
+
+/**
+ * 
+ * @param {Object} obj 
+ */
+
+function displayProductInfo({name, price,category, details:{brand,color,weight}={}}={}) {
+    console.log(name);
+    console.log(price);
+    console.log(category);
+    console.log(brand);
+    console.log(color);
+    console.log(weight);
+}
+
+// displayProductInfo(product);
+
+
+
+// ЗАВДАННЯ 53. Напиши функцію так, щоб вона повертала новий об'єкт контакту з доданими властивостями id та createAt, а також list зі значенням default, якщо немає такої властивості.
+
+/**
+ * 
+ * @param {Object} partialContact 
+ * @returns {Object} new contact
+ */
+
+function createContact_1(partialContact) {
+    return {
+        id: "_" + Math.random().toString(36).substring(2, 9),
+        createAt: new Date(),
+        list: "default",
+        ...partialContact,
+    }
+}
+
+// console.log(createContact_1({
+//     name: "Mango",
+//     email: "mango@mail.com",
+//     list: "friends",
+// }));
+
+// console.log(createContact_1({
+//     name: "Poly",
+//     email: "poly@mail.com",
+// }))
+
+
+// ЗАВДАННЯ 54. Напиши функцію так, щоб вона повертала новий об'єкт із властивістю fullName замість firstNAme та lastName.
+
+/**
+ * 
+ * @param {Object} user 
+ * @returns {Object} profile
+ */
+
+
+// Варіант 1
+function transformUserName_1({firstName, lastName, ...props}={}) {
+    return {
+        fullName: `${firstName} ${lastName}`,
+        ...props,
+    }
+}
+
+// Варіант 2
+// function transformUserName_1(obj={}) {
+//     const keys = Object.keys(obj);
+//     const profile = {};
+//     const fullName = [];
+//     for (const key of keys) {
+//         if (key === "firstName" || key === "lastName") {
+//             fullName.push(obj[key]);
+//         } else {
+//             profile[key] = obj[key];
+//         }
+//     }
+//     profile.fullName = fullName.join(" ");
+//     return profile;
+// }
+
+
+// Варіант 3
+// function transformUserName_1(obj={}) {
+//     const firstName = obj.firstName;
+//     const lastName = obj.lastName;
+
+//     delete obj.firstName;
+//     delete obj.lastName;
+
+//     obj.fullName = `${firstName} ${lastName}`;
+//     return obj;
+// }
+
+// console.log(transformUserName_1({
+//     id: 1,
+//     firstName: "Iryna",
+//     lastName: "Tololo",
+//     email:"tololo@mail.com",
+// }))
+
+// console.log(transformUserName_1())
+
+
+
+// ЗАВДАННЯ 55. Необхідно зробити рефакторинг функції calculateHousePerimeter, так щоб вона приймала об'єкт з параметрами будинку, включаючи довжини сторін будинку. Функція повинна розрахувати та повернути периметр будинку.
+
+// function calculateHousePerimeter(a, b, c, d) {
+//     const perimeter = a + b + c + d;
+//     return perimeter;
+// }
+
+// const perimeter = calculateHousePerimeter(10, 15, 10, 15);
+// console.log(`Периметр будинку - ${perimeter}`)
+
+
+function calculateHousePerimeter({sideA: a, sideB: b, sideC: c, sideD: d}={}) {
+    const perimeter = a + b + c + d;
+    return perimeter;
+}
+
+const perimeter = calculateHousePerimeter({ sideA: 10, sideB: 15, sideC: 10, sideD: 15 });
+// console.log(`Периметр будинку - ${perimeter}`)
+
+
