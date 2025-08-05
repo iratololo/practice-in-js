@@ -1625,3 +1625,91 @@ const perimeter = calculateHousePerimeter({ sideA: 10, sideB: 15, sideC: 10, sid
 // console.log(`Периметр будинку - ${perimeter}`)
 
 
+
+
+
+
+
+const atTheOldToad = {
+    potions: [
+      { name: "Speed potion", price: 460 },
+      { name: "Dragon breath", price: 780 },
+      { name: "Stone skin", price: 520 },
+    ],
+    // Change code below this line
+    getPotions() {
+      return this.potions;
+    },
+
+    addPotion(newPotion) {
+        for (const item of this.potions) {
+            if (newPotion.name === item.name) {
+             return `Error! Potion ${newPotion} is already in your inventory!`;
+            }
+        }
+  
+      this.potions.push(newPotion);
+    },
+
+    removePotion(potionName) {
+        for (let i = 0; i < this.potions.length; i += 1) {
+            console.log(this.potions[i])
+        } 
+      const potionIndex = this.potions.indexOf(potionName);
+  
+      if (potionIndex === -1) {
+        return `Potion ${potionName} is not in inventory!`;
+      }
+  
+      this.potions.splice(potionIndex, 1);
+    },
+    updatePotionName(oldName, newName) {
+      const potionIndex = this.potions.indexOf(oldName);
+  
+      if (potionIndex === -1) {
+        return `Potion ${oldName} is not in inventory!`;
+      }
+  
+      this.potions.splice(potionIndex, 1, newName);
+    },
+    // Change code above this line
+};
+  
+
+// console.log(atTheOldToad.getPotions());
+
+// console.log(atTheOldToad.addPotion({ name: "Invisibility", price: 620 }));
+// console.log(atTheOldToad.addPotion({ name: "Power potion", price: 270 }));
+// console.log(atTheOldToad.addPotion({ name: "Dragon breath", price: 700 }))
+// console.log(atTheOldToad.potions)
+
+
+// console.log(atTheOldToad.removePotion("Dragon breath"));
+// console.log(atTheOldToad.removePotion("Speed potion"))
+// console.log(atTheOldToad.potions)
+
+
+// const dirtyMultiply = (array, value) => {
+//     for (let i = 0; i < array.length; i += 1) {
+//       array[i] = array[i] * value;
+//     }
+//   };
+
+
+
+
+
+
+// ЗАВДАННЯ 57. Фільтрація унікальних елементів 
+
+const students = [
+    { name: "Манго", courses: ["математика", "фізика"] },
+    { name: "Полі", courses: ["інформатика", "математика"] },
+    { name: "Ківі", courses: ["фізика", "біологія"] },
+  ];
+  
+const allCourses = students.flatMap(student => student.courses);
+const uniqueCourses = allCourses.filter(
+    (course, index, array) => array.indexOf(course) === index
+  );
+
