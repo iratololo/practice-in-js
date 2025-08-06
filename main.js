@@ -1698,7 +1698,7 @@ const atTheOldToad = {
 
 
 
-
+//* ---------------------------------------------------------------------------------------callback / arrow function, Array methods
 
 // ЗАВДАННЯ 57. Фільтрація унікальних елементів 
 
@@ -1713,3 +1713,127 @@ const uniqueCourses = allCourses.filter(
     (course, index, array) => array.indexOf(course) === index
   );
 
+
+
+
+// ЗАВДАННЯ 58. Напиши ф-цію createProduct(obj, callback), яка додає id, logProduct - callback, який логує продукт, logTotalPrice - callback, який логує загальну вартість
+
+/**
+ * Додає унікальний id до об'єкта продукту і викликає колбек
+ * @param {{ name: string, price: number, quantity: number, [key: string]: any }} obj - Об'єкт продукту
+ * @param {(product: object) => void} callback - Колбек-функція, що приймає продукт
+ * @returns {void}
+ */
+
+function createProduct_1(obj, callback) {
+    obj.id = "_" + Math.random().toString(36).substring(2, 9);
+    callback(obj);
+}
+
+/**
+ * Виводить назву продукту в консоль
+ * @param {{ name: string }} obj - Об'єкт продукту
+ * @returns {void}
+ */
+
+function logProduct(obj) {
+    console.log(obj.name);
+}
+
+/**
+ * Виводить загальну ціну продукту (price × quantity) в консоль
+ * @param {{ price: number, quantity: number }} obj - Об'єкт продукту
+ * @returns {void}
+ */
+
+function logTotalPrice(obj) {
+    console.log(obj.price * obj.quantity);
+}
+
+// createProduct_1({ name: "apple", price: 30, quantity: 3 }, logProduct);
+// createProduct_1({ name: "apple", price: 30, quantity: 3 }, logTotalPrice);
+
+
+
+// ЗАВДАННЯ 59. Додайте об'єкту account методи withdraw(amount, onSuccess, onError) та deposit(amount, onSuccess, onError)
+
+const TRANSACTION_LIMIT = 1000;
+
+const bankAccount = {
+    userName: "Jacob",
+    balance: 400,
+    withdraw(amount, onSuccess, onError) {
+        if (amount > TRANSACTION_LIMIT ) {
+            onError(`TRANSACTION LIMIT - ${TRANSACTION_LIMIT}`);
+            return;
+        } else if (amount > this.balance) {
+            onError(`not enough money`);
+            return;
+        }
+        this.balance -= amount;
+        onSuccess(`The transaction was successful. Your balance is ${this.balance}`);
+    },
+    deposit(amount, onSuccess, onError) {
+        if (amount > TRANSACTION_LIMIT || amount <= 0) {
+            onError('Amount greater than the limit');
+            return;
+        }
+        this.balance += amount;
+        onSuccess(`The transaction was successful. Your balance is ${this.balance}`);
+    },
+}
+
+function handleSuccess(message) {
+    console.log(`✔Sucess! ${message}`);
+}
+
+function handleError(message) {
+    console.log(`❌Error! ${message}`);
+}
+
+// bankAccount.withdraw(2000, handleSuccess, handleError);
+// bankAccount.withdraw(600, handleSuccess, handleError);
+// bankAccount.withdraw(300, handleSuccess, handleError);
+// bankAccount.deposit(2000, handleSuccess, handleError);
+// bankAccount.deposit(600, handleSuccess, handleError);
+// bankAccount.deposit(-200, handleSuccess, handleError);
+
+
+
+
+// ЗАВДАННЯ 60. Напиши ф-ію each(array, callback) яка застосовується до кожного елементу масиву, повинна повернути новий масив, елементами якого будуть результати виклику callback.
+
+/**
+ * Створює новий масив, у якому кожен елемент — результат callback-функції, застосованої до відповідного елемента вхідного масиву.
+ * @param {Array<any>} array - Вхідний масив будь-яких значень
+ * @param {(item: any) => any} callback - Функція, яка обробляє кожен елемент масиву
+ * @returns {Array<any>} Новий масив після трансформації елементів
+ */
+
+function each(array, callback) {
+    return array.map(item => callback(item));
+}
+
+// console.log(each([64, 49, 36, 25, 16], function (value) { return value * 2 }));
+// console.log(each([64, 49, 36, 25, 16], function (value) { return value - 10 }));
+// console.log(each([64, 49, 36, 25, 16], function (value) { return Math.sqrt(value) }));
+// console.log(each([1.5, 2.1, 16.4, 9.7, 11.3], function (value) { return Math.ceil(value) }));
+
+
+
+
+// ЗАВДАННЯ 61. Виконайте рефакторинг за допомогою forEach та arrow function.
+
+// function logItems(items) {
+//     for (let i = 0; i < items.length; i += 1){
+//         console.log(`${i+1} - ${items[i]}`)
+//     };
+// };
+
+// logItems(['Mango', 'Poly', "Ajax"]);
+
+
+const logItems_1 = items => items.forEach((item, idx) => console.log(`${idx+1} - ${item}`));
+
+
+// logItems_1(['Mango', 'Poly', "Ajax"]);
