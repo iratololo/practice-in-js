@@ -1856,3 +1856,34 @@ const cars = [
 
 const getModels = cars => cars.map(car => car.model);
 // console.log(getModels(cars));
+
+
+
+// ЗАВДАННЯ 62. Функція makeCarsWithDiscount повертає новий масив об'єктів зі зміненими цінами залежно від переданої знижки.
+
+const makeCarsWithDiscount = (cars, discount) => cars.map(car => {
+    car.price = car.price * (1 -discount);
+    return car;
+    })
+
+
+// console.log(makeCarsWithDiscount(cars, 0.2));
+
+
+
+// ЗАВДАННЯ 63. Функція filterByPrice повертає масив авто, ціна яких менша threshold.
+
+const filterByPrice = (cars, threshold) => cars.filter(({ price }) => price < threshold);
+
+// console.log(filterByPrice(cars, 25000));
+
+
+
+// ЗАВДАННЯ 64. Функція getCarsWithDiscount повертає масив авто, властивість onSale яких true.
+
+const getCarsWithDiscount = (cars) => cars.filter(({ onSale }) => onSale);
+
+// console.log(getCarsWithDiscount(cars));
+
+
+// ЗАВДАННЯ 65. Функція getCarsWithDiscount повертає масив авто, властивість onSale яких true.
