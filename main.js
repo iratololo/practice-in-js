@@ -1886,4 +1886,56 @@ const getCarsWithDiscount = (cars) => cars.filter(({ onSale }) => onSale);
 // console.log(getCarsWithDiscount(cars));
 
 
-// ЗАВДАННЯ 65. Функція getCarsWithDiscount повертає масив авто, властивість onSale яких true.
+
+// ЗАВДАННЯ 65. Функція getCarsWithType повертає масив авто, тип якого збігається зі значенням type.
+
+const getCarsWithType = (cars, type) => cars.filter(({ type: carType }) => carType === type);
+
+// console.log(getCarsWithType(cars, 'suv'));
+
+
+
+// ЗАВДАННЯ 66. Функція getCarsByModel повертає масив авто, модель якого збігається зі значенням model.
+
+const getCarsByModel = (cars, model) => cars.find(({ model: carModel }) => carModel === model);
+
+// console.log(getCarsByModel(cars, 'F-150'));
+
+
+
+// ЗАВДАННЯ 67. Функція getCarsByModel повертає масив авто, модель якого збігається зі значенням model.
+
+const getCarByModel = (cars, model) => cars.find(({ model: carModel }) => carModel === model);
+
+// console.log(getCarByModel(cars,'F-150'));
+
+
+
+// ЗАВДАННЯ 68. Функція sortByAscendingAmount повертає новий масив авто, відсортований за зростанням значення властивості amount.
+
+const sortByAscendingAmount = (cars) => [...cars].sort((a, b) => a.amount - b.amount);
+
+// console.log(sortByAscendingAmount(cars));
+
+
+
+// ЗАВДАННЯ 69. Функція sortByDescendingPrice повертає новий масив авто, відсортований за спаданням значення властивості price.
+
+const sortByDescendingPrice = (cars) => [...cars].sort(({ price: a }, { price: b }) => b - a);
+
+// console.log(sortByDescendingPrice(cars));
+
+
+
+// ЗАВДАННЯ 70. Функція sortByModel повертає новий масив авто, відсортований за назвою моделі в алфавітному та зворотному порядку, в заледності від значення параметра ордер.
+
+const sortByModel = (cars, order) => {
+    if (order === 'asc') {
+        return [...cars].sort(({ model: a }, { model: b }) => a.localeCompare(b));
+    }
+if (order === 'desc') {
+    return [...cars].sort(({ model: a }, { model: b }) => b.localeCompare(a));
+}}
+
+console.log(sortByModel(cars, 'asc'));
+console.log(sortByModel(cars, 'desc'));
