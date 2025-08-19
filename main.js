@@ -1937,5 +1937,71 @@ if (order === 'desc') {
     return [...cars].sort(({ model: a }, { model: b }) => b.localeCompare(a));
 }}
 
-console.log(sortByModel(cars, 'asc'));
-console.log(sortByModel(cars, 'desc'));
+// console.log(sortByModel(cars, 'asc'));
+// console.log(sortByModel(cars, 'desc'));
+
+
+
+// ЗАВДАННЯ 71. Функція getTotalAmount повертає загальну кулькість автомобілів.
+
+const getTotalAmount = (cars) => cars.reduce((acc, { amount }) => acc+ amount, 0);
+
+// console.log(getTotalAmount(cars));
+
+
+
+// ЗАВДАННЯ 72. Функція getAvailableCarNames повертає масив моделей автомобілів, але тільки тих, які зараз на розпродажі.
+
+const getAvailableCarNames = (cars) => cars.filter(({ onSale }) => onSale).map(({model})=>model);
+
+// console.log(getAvailableCarNames(cars));
+
+
+
+// ЗАВДАННЯ 73. Функція getSortedCarsOnSale повертає масив автомобілів на розпродажі, відсортованих за зростанням ціни.
+
+const getSortedCarsOnSale = (cars) => cars.filter(({ onSale }) => onSale).sort(({ price: a }, { price: b }) => a - b);
+
+// console.log(getSortedCarsOnSale(cars));
+
+
+
+// ЗАВДАННЯ 74. Функція getNumberOfLetters повертає об'єкт де ключ це літера, а значення - скільки разів вона зустрічається в рядку.
+
+const str = 'dsfhlaflflabjnjvkdsdsdslflnkaabvklsehuabbkal';
+
+const getNumberOfLetters = (str) => str.split('').reduce((acc, letter, idx, arr) => {
+arr.indexOf(letter) === idx ? acc[letter] = 1 : acc[letter] += 1;
+    return acc;
+}, {});
+
+// const getNumberOfLetters = (str) => str.split('').reduce((acc, letter) => {
+//     acc.hasOwnProperty(letter) ? acc[letter] += 1 : acc[letter] = 1;
+//     return acc;
+// }, {});
+
+console.log(getNumberOfLetters(str));
+
+
+
+// ЗАВДАННЯ 75.
+
+const arr_2 = ["Honda", "BMW", 'Audi', 'Skoda', 'Ford'];
+
+// const result_2 = (cars) => {
+//     if (!cars.length) {
+//         return 'sorry, the list is empty';
+//     }
+//     return cars.reduce((acc, item, idx, arr) => {
+//     acc += `${idx + 1} - ${item}\n`;
+//     return acc
+// }, `Total amount of cars is ${cars.length}\n`)};
+
+const result_2 = (cars) => {
+    return cars.reduce((acc, item, idx, arr) => {
+    acc += `${idx + 1} - ${item}\n`;
+    return acc
+}, cars.length? `Total amount of cars is ${cars.length}\n`:'sorry, the list is empty')};
+
+console.log(result_2(arr_2))
+console.log(result_2([]))
