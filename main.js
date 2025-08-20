@@ -1702,13 +1702,13 @@ const atTheOldToad = {
 
 // ЗАВДАННЯ 57. Фільтрація унікальних елементів 
 
-const students = [
+const students_1 = [
     { name: "Манго", courses: ["математика", "фізика"] },
     { name: "Полі", courses: ["інформатика", "математика"] },
     { name: "Ківі", courses: ["фізика", "біологія"] },
   ];
   
-const allCourses = students.flatMap(student => student.courses);
+const allCourses = students_1.flatMap(student => student.courses);
 const uniqueCourses = allCourses.filter(
     (course, index, array) => array.indexOf(course) === index
   );
@@ -1980,7 +1980,7 @@ arr.indexOf(letter) === idx ? acc[letter] = 1 : acc[letter] += 1;
 //     return acc;
 // }, {});
 
-console.log(getNumberOfLetters(str));
+// console.log(getNumberOfLetters(str));
 
 
 
@@ -2003,5 +2003,165 @@ const result_2 = (cars) => {
     return acc
 }, cars.length? `Total amount of cars is ${cars.length}\n`:'sorry, the list is empty')};
 
-console.log(result_2(arr_2))
-console.log(result_2([]))
+// console.log(result_2(arr_2))
+// console.log(result_2([]))
+
+
+
+
+// ЗАВДАННЯ 76. Write a function to create a new array of objects containing data on the average score of each student..
+
+// const students = [
+//     { name: "John", grades: [80, 85, 90] },
+//     { name: "Alice", grades: [90, 95, 92] },
+//     { name: "Bob", grades: [70, 80, 75] },
+//     { name: "Emily", grades: [95, 92, 88] },
+//     { name: "David", grades: [85, 88, 90] },
+// ];
+
+// function getAverage(students) {
+//   return students.map(student => {
+//       let averageScore=0;
+//       student.grades.forEach(grade => averageScore += grade);
+//       return {
+//           ...student,
+//           average : (averageScore / student.grades.length).toFixed()
+//       }
+//     })
+// }
+
+function getAverage(students) {
+  return students.map(({name, grades}) => {
+      const total = grades.reduce((acc, item) => acc += item);
+      return { name, average: Math.round(total / grades.length) };
+    })
+}
+
+// console.log(getAverage(students));
+
+
+
+// ЗАВДАННЯ 77. Write a function to create a new array containing only students over 20 years old.
+
+const students = [
+    { name: "John", age:20, gpa:3.8 },
+    { name: "Alice", age:21, gpa:3.2 },
+    { name: "Bob", age:19, gpa:3.5 },
+    { name: "Emily", age:22, gpa:3.9 },
+    { name: "David", age:20, gpa:3.7 },
+];
+
+/**
+ * Filter Array of objects by age of student and return student's name.
+ * @param {Object[]} students - Array of student objects with at least {name, age}.
+ * @returns {string[]} Array of student names older than 20
+ */
+
+function getAdult(students) {
+    return students.filter(student => student.age > 20).map(student=>student.name);
+}
+
+// console.log(getAdult(students));
+
+
+
+// ЗАВДАННЯ 78. Write a function to search for a book by its title. If the book is not found, return the string ‘Not found’.
+
+// const books = [
+//     { title: 'JavaScript', author: "Douglas", year: 2008 },
+//     { title: 'Clean Code', author: "Martin", year: 2008 },
+//     { title: 'The Pragmatic Programmer', author: "Hunt", year: 1999 },
+//     { title: 'Design Patterns', author: "Gamma", year: 2008 },
+//     {title: 'Refactoring', author: "Fowler", year: 2008},
+// ]
+
+/**
+ * Searches for a book by its title and returns the book object if found, 
+ * or a string "not found" if the book isn't found.
+ * 
+ * @param {Object[]} arr Array of books objects with at least {title, author, year}.
+ * @param {String} title The title of the book to search for.
+ * @returns {Object|String} The book object if found, otherwise the string "not found".
+ */
+
+function getBook(arr, title) {
+    const book = arr.find(book => book.title.toLowerCase() === title.toLowerCase());
+    return book || "not found";
+}
+
+// console.log(getBook(books,'javaSCript'));
+// console.log(getBook(books,'java'))
+
+
+
+// ЗАВДАННЯ 79. Write a function to calculate the total cost of all items in the arrey as the product of price and quantity and then sum it with other items. The result should be the total cost of all items.
+
+// const products = [
+//     { id: 1, name: "T-shirt", price: 20, quantity: 3 },
+//     { id: 2, name: "Jeans", price: 50, quantity: 2 },
+//     { id: 3, name: "Sneakers", price: 80, quantity: 1 },
+//     { id: 4, name: "Hat", price: 15, quantity: 4 },
+//     { id: 5, name: "Socks", price: 5, quantity: 5 },
+// ];
+
+/**
+ *  Calculates the total cost of all items in the array.
+ * @param {Object[]} arr Array of product objects with at least {id, id, price,quantity}.
+ * @returns {number} the total cost of all products
+ */
+function getTotalCost(arr) {
+   return arr.reduce((acc, {price, quantity})=> acc+=price*quantity,0)
+}
+
+// console.log(getTotalCost(products));
+
+
+
+// ЗАВДАННЯ 80. Write a function to sort books by year of publication in descending order.
+
+const books = [
+    { title: 'JavaScript', author: "Douglas", year: 2008 },
+    { title: 'Clean Code', author: "Martin", year: 2008 },
+    { title: 'The Pragmatic Programmer', author: "Hunt", year: 1999 },
+    { title: 'Design Patterns', author: "Gamma", year: 1994 },
+    {title: 'Refactoring', author: "Fowler", year: 1999},
+]
+
+/**
+ * sort books by year of publication in descending order
+ * @param {Object[]} arr Array of books objects with at least {title, author, year}.
+ * @returns {Object[]} new sorted arrey by year of publication
+ */
+
+function sortDesc(arr) {
+    return [...arr].sort(({ year: a }, { year: b }) => b - a);
+}
+
+// console.log(sortDesc(books));
+
+
+
+// ЗАВДАННЯ 81. Write a function to get an arrey of products names with price less then 2 dollars and sort them alphabetically.
+
+
+const products = [
+    { id: 2, name: "Banana", price: 0.99 },
+    { id: 1, name: "Apple", price: 1.99},
+    { id: 3, name: "Orange", price: 2.49 },
+    { id: 4, name: "Grapes", price: 3.99},
+];
+
+
+/**
+ * Gets an arrey of products names with price less then 2 dollars and sort them alphabetically
+ * @param {Object[]} arr Array of product objects with at least {id, name, price}.
+ * @returns {String} Products list or "not found"
+ */
+function getSortedProducts(arr) {
+    const products = arr.filter(item => item.price < 3).map(item => item.name).sort((a, b) => a.localeCompare(b));
+    return products.reduce((acc,item,idx)=> acc+=`${idx+1} - ${item}\n`, products.length ? 'Product list:\n' :"not found");
+};
+
+console.log(getSortedProducts(products));
+
+
