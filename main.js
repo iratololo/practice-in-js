@@ -1,3 +1,4 @@
+
 //TODO: Number.isNaN()
 
 Number.isNaN(NaN ); // 
@@ -745,7 +746,7 @@ function createString(arr) {
 
 function calcBMI(weight, height) {
     weight = parseFloat(weight.replace(",", "."));
-    heigh = parseFloat(height.replace(",", '.'));
+    height = parseFloat(height.replace(",", '.'));
     return (weight / Math.pow(height,2)).toFixed(1);
 
 }
@@ -2162,6 +2163,109 @@ function getSortedProducts(arr) {
     return products.reduce((acc,item,idx)=> acc+=`${idx+1} - ${item}\n`, products.length ? 'Product list:\n' :"not found");
 };
 
-console.log(getSortedProducts(products));
+// console.log(getSortedProducts(products));
+
+
+
+
+
+//* ---------------------------------------------------------------------------------------Module 5: this, class
+
+
+// ЗАВДАННЯ 82. Write a method that receives the name of a stone and then calculates and returns the total price of stones with that name.
+
+// const chopShop = {
+//     stones: [
+//         { name: "Emerald", price: 1300, quantity: 4 },
+//         { name: "Diamond", price: 2700, quantity: 3 },
+//         { name: "Sapphire", price: 1400, quantity: 7 },
+//         { name: "Ruby", price: 800, quantity: 2 },
+//     ],
+//     calcTotalPrice(stoneName) {
+//         for (const stone of this.stones) {
+//             if (stone.name === stoneName) {
+//                 return stone.price * stone.quantity;
+//             }
+//         }
+//     },
+// };
+
+const chopShop = {
+    stones: [
+        { name: "Emerald", price: 1300, quantity: 4 },
+        { name: "Diamond", price: 2700, quantity: 3 },
+        { name: "Sapphire", price: 1400, quantity: 7 },
+        { name: "Ruby", price: 800, quantity: 2 },
+    ],
+    calcTotalPrice(stoneName) {
+        const { price, quantity } = this.stones.find(({ name }) => name === stoneName);
+        return price * quantity;
+    },
+}
+
+const shop = {
+    stones: [
+        { name: "Щебінь", price: 1000, quantity: 4 },
+        { name: "Пісок", price: 1000, quantity: 3 },
+    ],
+}
+
+// console.log(chopShop.calcTotalPrice("Emerald"));
+// console.log(chopShop.calcTotalPrice("Diamond"));
+// console.log(chopShop.calcTotalPrice("Sapphire"));
+// console.log(chopShop.calcTotalPrice("Ruby"));
+
+// console.log(chopShop.calcTotalPrice.call(shop, "Щебінь"));
+// console.log(chopShop.calcTotalPrice.call(shop, 'Пісок'));
+
+// const shopCost = chopShop.calcTotalPrice.bind(shop);
+// console.log(shopCost('Щебінь'));
+// console.log(shopCost("Пісок"));
+
+
+
+// Task 83. Refactor the object's methods so that the code works.
+
+const phoneBook = {
+    contacts: [],
+    add(contact) {
+        const newContact = {
+            list: 'default',
+            ...contact,
+            id: generateId(),
+            createdAt: Date.now(),
+        };
+        this.contacts.push(newContact);
+    },
+};
+
+// console.log(phoneBook.add({ name: "Mango", email: "mango@gmail.com", list: 'friends' }));
+// console.log(phoneBook.contacts);
+
+
+// Task 84. Create a calculator object with three methods.
+
+const calculator = {
+    read(a, b) {
+        this.a = a ?? 0;
+        this.b = b ?? 0;
+    },
+    add() {
+        return this.a  + this.b;
+    },
+    mult() {
+        return this.a  * this.b;
+    },
+};
+
+const calc2 = {};
+
+console.log(calculator.read(5,5));
+console.log(calculator.add());
+console.log(calculator.mult());
+// console.log(calculator.read.call(calc2, 4, 4));
+// console.log(calculator.add.call(calc2));
+// console.log(calculator.mult.call(calc2));
+
 
 
