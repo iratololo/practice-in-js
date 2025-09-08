@@ -2260,12 +2260,90 @@ const calculator = {
 
 const calc2 = {};
 
-console.log(calculator.read(5,5));
-console.log(calculator.add());
-console.log(calculator.mult());
+// console.log(calculator.read(5,5));
+// console.log(calculator.add());
+// console.log(calculator.mult());
 // console.log(calculator.read.call(calc2, 4, 4));
 // console.log(calculator.add.call(calc2));
 // console.log(calculator.mult.call(calc2));
 
+
+
+// Task 85. Create an object cruiseControl with methods accelerate and decrease and also properties speed and brand.
+
+const cruiseControl = {
+    speed: 0,
+    brand: "Audi",
+    accelerate() {
+        this.speed += 10;
+        console.log(`Авто ${this.brand} прискорюється з швидкістю 10 км/год, поточна швидкість - ${this.speed} км/год`)
+    },
+    decrease() {
+        this.speed -= 10;
+        if (this.speed <= 0) {
+            console.log(`Авто ${this.brand} зупинилося.`);
+            this.speed = 0;
+            return;
+        }
+        console.log(`Авто ${this.brand} уповільнюється з швидкістю 10 км/год, поточна швидкість - ${this.speed} км/год`)
+    },
+};
+
+
+// cruiseControl.accelerate();
+// cruiseControl.accelerate();
+// cruiseControl.accelerate();
+// cruiseControl.accelerate();
+// cruiseControl.decrease();
+// cruiseControl.decrease();
+// cruiseControl.decrease();
+// cruiseControl.decrease();
+
+
+
+// Task 86. Create a product object with a discount method that will receive the customer's discount as a percentage and return the total cost of the products, taking into account the discount. Also, create a client object that contains the name and personal discount, a purchase method that will call the method to calculate the total cost and log the the purchase message.
+
+const purchaseOfProduct = {
+    name: "Smartphone",
+    price: 500,
+    discount(percent) {
+        return this.price *(100 - percent) / 100;
+    }
+};
+
+const client = {
+    name: "Iryna",
+    discount: 5,
+    purchase() {
+        const totalCost = purchaseOfProduct.discount(this.discount);
+        console.log(`${this.name} has purchased the goods at a ${this.discount} percent discount. The amount payable is ${totalCost} hryvnia.`)
+    }
+}
+
+// console.log(purchaseOfProduct.discount(50));
+// client.purchase();
+
+
+
+// Task 87. Create a function that will be recieve one parameter - the speed limit and log the message indicating weather we are driving at a safe speed or exceeding it.
+
+const SAFE_SPEED = 60;
+
+const tesla = {
+    brans: "Tesla",
+    speed: 30,
+}
+
+const audi = {
+    brans: "Audi",
+    speed: 70,
+}
+
+function speedSensor(maxSpeed) {
+    return this.speed > maxSpeed ? "We are exceeding the speed limit" : "We are driving at a safe speed";
+}
+
+console.log(speedSensor.call(tesla, SAFE_SPEED));
+console.log(speedSensor.call(audi, SAFE_SPEED));
 
 
