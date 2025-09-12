@@ -2169,7 +2169,7 @@ function getSortedProducts(arr) {
 
 
 
-//* ---------------------------------------------------------------------------------------Module 5: this, class
+//* ---------------------------------------------------------------------------------------Module 5: this
 
 
 // ЗАВДАННЯ 82. Write a method that receives the name of a stone and then calculates and returns the total price of stones with that name.
@@ -2343,7 +2343,391 @@ function speedSensor(maxSpeed) {
     return this.speed > maxSpeed ? "We are exceeding the speed limit" : "We are driving at a safe speed";
 }
 
-console.log(speedSensor.call(tesla, SAFE_SPEED));
-console.log(speedSensor.call(audi, SAFE_SPEED));
+// console.log(speedSensor.call(tesla, SAFE_SPEED));
+// console.log(speedSensor.call(audi, SAFE_SPEED));
+
+
+
+
+
+
+
+//* ---------------------------------------------------------------------------------------Module 5: class
+
+
+// Task 87. Create a Blogger class to create an object with the following properties: email, age, numberOfPosts, topics. It should have one parameter. Add a getInfo() method that returns a message, and an updatePostCount(value) method that receives multiple posts to add to the client.
+
+class Blogger{
+    constructor({email, age, numberOfPosts=0, topics=[],}={}) {
+        this.email = email;
+        this.age = age;
+        this.numberOfPosts = numberOfPosts;
+        this.topics = topics;
+    }
+    getInfo() {
+        return `User ${this.email} is ${this.age} years old and has ${this.numberOfPosts} posts`;
+    }
+    updatePostCount(value) {
+        this.numberOfPosts += value;
+        return this.numberOfPosts;
+    }
+}
+
+const mango = new Blogger({
+    email: "mango@mail.com",
+    age: 18,
+    numberOfPosts: 1,
+    topics: ['tech', 'cooking'],
+})
+
+// console.log(mango.getInfo());
+// console.log(mango.updatePostCount(2));
+
+
+
+// Task 88. Create a Storage class to create objects for managing a product inventory with an item property (array). Add a getItems() method that returns an array of products, an addItem(item) method that receives a new item and adds it to the current ones, and a removeItem(item) method that receives an item and, if it exists, deletes it.
+
+class Storage {
+    constructor(items=[]) {
+        this.items = items;
+    }
+    getItems() {
+        return this.items;
+    }
+    addItem(item) {
+        if (!this.items.includes(item)) {
+            this.items.push(item);
+            return;
+        }
+        return "this product already exists";
+    }
+    removeItem(item) {
+        const idx = this.items.indexOf(item);
+        if (!!~idx) {
+            this.items.splice(idx, 1);
+        }
+
+    }
+}
+
+const storage = new Storage(["🍎", "🍋", "🍇", "🍑"]);
+// console.log(storage.getItems())
+
+// console.log(storage.addItem('🍕'));
+// console.log(storage.getItems());
+
+// console.log(storage.addItem('🍕'));
+// console.log(storage.getItems());
+
+// console.log(storage.removeItem('🍕'));
+// console.log(storage.getItems());
+
+
+
+
+// Task 89. Create a User class with login and email properties, that are private. Access them using get() and set().
+
+class User {
+    #login;
+    #email;
+    constructor({ login, email }) {
+        this.#login = login;
+        this.#email = email;
+    }
+    get login() {
+        return this.#login;
+    }
+    set login(value) {
+        if (this.#login !== value) {
+            this.#login = value;
+        }
+    }
+    get email() {
+        return this.#email;
+    }
+    set email(value) {
+        if (this.#email !== value) {
+            this.#email = value;
+        }
+    }
+}
+
+const newMango = new User({
+    login: "Mango",
+    email: "mango@mail.com",
+});
+
+// console.log(newMango.login);
+// newMango.login = "MangoDB";
+// console.log(newMango.login);
+
+// console.log(newMango.email);
+// newMango.email = "mangodb@mail.com";
+// console.log(newMango.email);
+
+
+
+
+// Task 90. Create a Notes class with an items property that contains a collection of notes. Each note is an object with text and priority properties. Add a static Priority property that stores an object with priorities.
+
+class Notes {
+    static Priority ={
+        LOW: "low",
+        NORMAL: "normal",
+        HIGH: "high",
+    }
+    constructor(items=[]) {
+        this.items = items;
+    }
+
+    addNote(note) {
+        const result = this.items.some(({ text }) => text === note.text);
+        if (!result) {
+            this.items.push(note);
+            return;
+        }
+        console.log("Such note already exists");
+    }
+    removeNote(text) {
+        const idx = this.items.findIndex(({ text: noteText }) => noteText === text);
+        if (!!~idx) {
+            this.items.splice(idx, 1)
+        }
+    }
+    updatePriority(text, newPriority) {
+        const idx = this.items.findIndex(({ text: noteText }) => noteText === text);
+        if (!!~idx) {
+            this.items[idx].priority = newPriority;
+        }
+    }
+}
+
+
+const myNotes = new Notes([]);
+
+// console.log(myNotes.items);
+// myNotes.addNote({ text: "My first note", priority: Notes.Priority.LOW });
+// myNotes.addNote({ text: "My second note", priority: Notes.Priority.NORMAL });
+// myNotes.addNote({ text: "My second note", priority: Notes.Priority.NORMAL });
+// myNotes.addNote({ text: "My third note", priority: Notes.Priority.NORMAL });
+// console.log(myNotes.items);
+
+// myNotes.removeNote("My first note");
+// console.log(myNotes.items);
+
+// myNotes.updatePriority("My second note", Notes.Priority.HIGH);
+// console.log(myNotes.items);
+
+
+
+// Task 91. Create a Toggle class that receives a setting object {isOpen: boolean} and creates a single property "on" - the on and off state (true/false). The default value of the ‘on’ property should be false.
+
+class Toggle {
+    constructor({isOpen=false}) {
+        this.on = isOpen; 
+    }
+    toggle() {
+        this.on = !this.on;
+    }
+}
+
+const firstToggle = new Toggle({ isOpen: false });
+
+// console.group("firstToggle");
+// console.log("before",firstToggle.on)
+// firstToggle.toggle();
+// console.log("after",firstToggle.on)
+// console.groupEnd("firstToggle");
+
+
+
+// Task 92. Create a Rectangle class that has private properties - width and height and also get and set for them.
+
+class Rectangle {
+    #width
+    #height
+    constructor({width, height}={}) {
+        this.#width = width;
+        this.#height = height;
+    }
+    get width() {
+        return this.#width;
+    }
+    set width(newWidth) {
+        if (newWidth > 0 & typeof newWidth === 'number') {
+            this.#width = newWidth;
+        }
+    }
+    get height() {
+        return this.#height;
+    }
+    set height(newHeight) {
+         if (newHeight > 0 & typeof newHeight === 'number') {
+            this.#height = newHeight;
+        }
+    }
+}
+
+const item = new Rectangle({ width: 10, height: 10 });
+// console.log(item.height, item.width);
+// item.height = 50;
+// item.width = 100;
+// console.log(item.height, item.width);
+
+
+
+// Task 93. Create a Student class that inherits from the User class. The Student class must have a private property "name" (inherited from the User class), a private property "surname" (inherited from the User class), and a property "year" (year of admission to the university). The class must have getFullName method (inherited from the User), getCourse method that log the current students course.
+
+class StudentUser {
+    #name;
+    #surname;
+    constructor(name, surname) {
+        this.#name = name;
+        this.#surname = surname;
+    }
+    getFullName() {
+        return `${this.#name} ${this.#surname}`;
+    }
+}
+
+
+class Student extends StudentUser {
+    constructor(name, surname, year) {
+        super(name, surname);
+        this.year = year;
+    }
+    getCourse() {
+        const currentYear = new Date().getFullYear();
+        const currentCourse = currentYear - this.year;
+        if (currentCourse > 5) {
+            return "the student is a graduate"
+        }
+        return `the student is in his ${currentCourse} year`
+    }
+}
+
+const student = new Student("Iryna", "Tololo", 2022);
+
+// console.log(student.name);
+// console.log(student.surname);
+// console.log(student.getFullName());
+// console.log(student.year)
+// console.log(student.getCourse())
+
+
+
+// Task 94. Create a Hero class that should have private properties name, level and health as well as methods attack and health. Add an option to count the number of heroes created.
+
+class Hero {
+    static heroesNumber = 0;
+    static addHero() {
+        this.heroesNumber += 1;
+        // console.log("number of hero",Hero.heroesNumber)
+    }
+    #level;
+    constructor(name) {
+        this.name = name;
+        this.#level = 1;
+        this.health = 100;
+        Hero.addHero();
+    }
+    attack() {
+        if (this.health >= 10) {
+            this.health -= 10;
+            return
+        }
+        return "oops, you can't attack"
+    }
+    heal() {
+        this.health += 10;
+        if (this.health > 100) {
+            this.health = 100;
+        }
+    }
+}
+
+const hobbit = new Hero("Hobbit");
+const hobbit1 = new Hero("Hobbit1");
+const hobbit2 = new Hero("Hobbit2");
+const hobbit3 = new Hero("Hobbit3");
+
+// console.log(hobbit)
+// console.log(hobbit.name);
+// console.log(hobbit.level);
+// console.log(hobbit.health);
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.health);
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.attack());
+// console.log(hobbit.health);
+// console.log(hobbit.attack());
+
+// console.log(hobbit.heal());
+// console.log(hobbit.heal());
+// console.log(hobbit.heal());
+// console.log(hobbit.heal());
+// console.log(hobbit.heal());
+// console.log(hobbit.health);
+// console.log(hobbit.heal());
+// console.log(hobbit.heal());
+// console.log(hobbit.heal());
+// console.log(hobbit.heal());
+// console.log(hobbit.health);
+// console.log(hobbit.heal());
+// console.log(hobbit.health);
+// console.log(hobbit.heal());
+// console.log(hobbit.health);
+
+// console.log(Hero.heroesNumber)
+
+
+
+// Task 95. Create a BankAccount class that should have private property balance as well as methods deposit and withdraw. Add an option to count the number of heroes created.
+
+
+class BankAccount {
+    #balance
+    constructor() {
+        this.#balance = 1000;
+    }
+
+    #changeBalane(amount) {
+        this.#balance += amount;
+    }
+
+    deposit(amount) {
+        if (amount <= 0) {
+            return "nice try";
+        }
+        this.#changeBalane(amount)
+        return `Your balance - ${this.#balance}`;
+    }
+    withdraw(amount) {
+        if (amount > this.#balance) {
+            return 'insufficient funds in the account';
+        }
+        this.#changeBalane(-amount)
+        return `Your balance - ${this.#balance}`;
+    }
+}
+
+const instance = new BankAccount();
+
+console.log(instance.balance);
+console.log(instance.deposit(1000));
+console.log(instance.deposit(-1000));
+console.log(instance.withdraw(500));
+console.log(instance.withdraw(5000));
+
+
+
+
 
 
