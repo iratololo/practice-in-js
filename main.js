@@ -2720,12 +2720,45 @@ class BankAccount {
 
 const instance = new BankAccount();
 
-console.log(instance.balance);
-console.log(instance.deposit(1000));
-console.log(instance.deposit(-1000));
-console.log(instance.withdraw(500));
-console.log(instance.withdraw(5000));
+// console.log(instance.balance);
+// console.log(instance.deposit(1000));
+// console.log(instance.deposit(-1000));
+// console.log(instance.withdraw(500));
+// console.log(instance.withdraw(5000));
 
+
+
+// Task 96.
+
+class StringBuilder {
+  constructor(initialValue){
+    this.value = initialValue;
+  }
+  getValue(){
+    return this.value;
+  }
+  padEnd(str){
+   this.value =  this.value + str;
+  }
+  padStart(str){
+    this.value = str + this.value;
+  }
+  padBoth(str){
+    this.padEnd(str);
+    this.padStart(str);
+  }
+}
+
+
+// Change code above this line
+const builder = new StringBuilder(".");
+console.log(builder.getValue()); // "."
+builder.padStart("^");
+console.log(builder.getValue()); // "^."
+builder.padEnd("^");
+console.log(builder.getValue()); // "^.^"
+builder.padBoth("=");
+console.log(builder.getValue()); // "=^.^="
 
 
 
