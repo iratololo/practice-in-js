@@ -2752,15 +2752,34 @@ class StringBuilder {
 
 // Change code above this line
 const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
+// console.log(builder.getValue()); // "."
 builder.padStart("^");
-console.log(builder.getValue()); // "^."
+// console.log(builder.getValue()); // "^."
 builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
+// console.log(builder.getValue()); // "^.^"
 builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
+// console.log(builder.getValue()); // "=^.^="
 
 
 
 
+const str_1 = [1, 2];
+console.log("isNaN",isNaN(str_1))
+console.log("Number.isNaN", Number.isNaN(str_1))
+// console.log(Number(undefined))
 
+
+function foo(){}
+
+console.log(typeof foo)
+console.log([1, 2, 3] + "")
+console.log("12" + 2)
+console.log("12" - 2)
+console.log("12" * 2)
+console.log("12" / 2)
+console.log(+"12")
+console.log(Number.parseInt("13ndn"))
+console.log(Number.parseFloat("13.5ndn"))
+
+const obj_1 = {};
+console.log(Object.keys(obj_1).length)
