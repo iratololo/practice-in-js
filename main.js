@@ -2783,3 +2783,42 @@ console.log(Number.parseFloat("13.5ndn"))
 
 const obj_1 = {};
 console.log(Object.keys(obj_1).length)
+console.log(parseFloat(" 12px"));
+console.log(Number(" 12px"));
+
+const numObj = 12345.6789;
+console.log(numObj.toFixed(1))
+console.log(Math.min())
+
+const paragraph = "I think Ruth's dog is cuter than your dog!";
+
+const searchTerm = "dog";
+const indexOfFirst = paragraph.indexOf(searchTerm,16);
+console.log(indexOfFirst);
+
+
+const sentence = "The quick brown fox jumps over the lazy dog.";
+
+const word = "Fox";
+console.log(sentence.includes(word))
+
+const str4 = "Cats are the best! undefined";
+
+console.log(str4.endsWith());
+
+
+const paragraph1 = "I think Ruth's dog is cuter than your dog!";
+
+console.log(paragraph1.replace("Bob's", "my"));
+
+
+const str5 = "quick";
+console.log(str5.length);
+console.log(str5.slice(0, 2));
+
+
+
+const str6 = "5";
+
+console.log(str6.padStart(2, 0));
+console.log(str6)
