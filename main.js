@@ -2764,61 +2764,223 @@ builder.padBoth("=");
 
 
 const str_1 = [1, 2];
-console.log("isNaN",isNaN(str_1))
-console.log("Number.isNaN", Number.isNaN(str_1))
+// console.log("isNaN",isNaN(str_1))
+// console.log("Number.isNaN", Number.isNaN(str_1))
 // console.log(Number(undefined))
 
 
 function foo(){}
 
-console.log(typeof foo)
-console.log([1, 2, 3] + "")
-console.log("12" + 2)
-console.log("12" - 2)
-console.log("12" * 2)
-console.log("12" / 2)
-console.log(+"12")
-console.log(Number.parseInt("13ndn"))
-console.log(Number.parseFloat("13.5ndn"))
+// console.log(typeof foo)
+// console.log([1, 2, 3] + "")
+// console.log("12" + 2)
+// console.log("12" - 2)
+// console.log("12" * 2)
+// console.log("12" / 2)
+// console.log(+"12")
+// console.log(Number.parseInt("13ndn"))
+// console.log(Number.parseFloat("13.5ndn"))
 
-const obj_1 = {};
-console.log(Object.keys(obj_1).length)
-console.log(parseFloat(" 12px"));
-console.log(Number(" 12px"));
+// const obj_1 = {};
+// console.log(Object.keys(obj_1).length)
+// console.log(parseFloat(" 12px"));
+// console.log(Number(" 12px"));
 
-const numObj = 12345.6789;
-console.log(numObj.toFixed(1))
-console.log(Math.min())
+// const numObj = 12345.6789;
+// console.log(numObj.toFixed(1))
+// console.log(Math.min())
 
 const paragraph = "I think Ruth's dog is cuter than your dog!";
 
 const searchTerm = "dog";
 const indexOfFirst = paragraph.indexOf(searchTerm,16);
-console.log(indexOfFirst);
+// console.log(indexOfFirst);
 
 
 const sentence = "The quick brown fox jumps over the lazy dog.";
 
 const word = "Fox";
-console.log(sentence.includes(word))
+// console.log(sentence.includes(word))
 
 const str4 = "Cats are the best! undefined";
 
-console.log(str4.endsWith());
+// console.log(str4.endsWith());
 
 
 const paragraph1 = "I think Ruth's dog is cuter than your dog!";
 
-console.log(paragraph1.replace("Bob's", "my"));
+// console.log(paragraph1.replace("Bob's", "my"));
 
 
-const str5 = "quick";
-console.log(str5.length);
-console.log(str5.slice(0, 2));
+// const str5 = "quick";
+// console.log(str5.length);
+// console.log(str5.slice(0, 2));
 
 
 
-const str6 = "5";
+// const str6 = "5";
 
-console.log(str6.padStart(2, 0));
-console.log(str6)
+// console.log(str6.padStart(2, 0));
+// console.log(str6)
+
+
+//* ---------------------------------------------------------------------------------------Module 6: DOM
+
+const element = document.querySelector(".menu");
+// console.log(element)
+const child = element.querySelector(".menu-item")
+// console.log(child.textContent = "Tololo")
+// console.log(child.classList.contains("menu-item"));
+child.classList.add("menu-item-first");
+child.classList.toggle("menu-item-first");
+child.classList.replace("menu-item-first", "item")
+child.style.color = "green";
+
+
+// console.log(child.hasAttribute("id"));
+// console.log(child.getAttribute("style"));
+// console.log(child.setAttribute("style", "text-transform: uppercase;"));
+// console.log(child.attributes)
+
+
+
+// Task 97.
+
+// Create new element
+const heading = document.createElement("h2");
+console.dir(heading.getAttribute("data-goods"));
+// Add content
+heading.textContent = "DOM and actions";
+// Add class
+heading.classList.add("main-title");
+heading.style.textAlign = "center";;
+// Add into DOM
+element.before(heading);
+
+
+
+
+// Create another element
+const heading2 = document.createElement("h2");
+// Add content
+heading2.textContent = "Some text";
+// Add class
+heading2.classList.add("title");
+heading2.style.textAlign = "center";;
+// Add into DOM
+element.after(heading2);
+
+// Removing
+const heading3 = document.querySelector(".some-title");
+heading3.remove()
+
+heading.innerHTML = "";
+
+heading.innerHTML = "<span>Hello</span>";
+
+
+
+
+// Task 98. Create a list.
+const tecnologies = ["css", 'html', "js", "php"];
+const items = ["phone", 'tv', "radio", "oven"];
+const listProducts = document.querySelector(".products");
+
+function murkup(arr) {
+    return arr.map(el => `<li class="product-item">${el}</li>`).join("");
+}
+
+listProducts.innerHTML = murkup(items);
+
+listProducts.insertAdjacentHTML("beforeend", `<li class="product-item">Lorem</li>`)
+
+
+
+
+// Task 99. Create a product list.
+
+const carsList = [
+    {
+        id:1,
+        model: "Honda",
+        type: "Civic",
+        price: 12000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:2,
+        model: "Audi",
+        type: "Q7",
+        price: 40000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        model: "BMW",
+        type: "S series",
+        price: 9000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+     {
+        model: "Honda",
+        type: "Civic",
+        price: 12000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        model: "Audi",
+        type: "Q7",
+        price: 40000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        model: "BMW",
+        type: "S series",
+        price: 9000,
+        img:"https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+     {
+        model: "Honda",
+        type: "Civic",
+        price: 12000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        model: "Audi",
+        type: "Q7",
+        price: 40000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:3,
+        model: "BMW",
+        type: "S series",
+        price: 9000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+]
+
+
+const listOfCars = document.querySelector(".cars");
+
+const carMurkup = carsList.map(({id="none", model, type, price, img }) => `<li class="cars-item" data-id=${id}>
+        <img src="${img}" alt="${model}" class="cars-img" />
+        <p class="cars-text">Model: ${model}</p>
+        <p class="cars-text">Type: ${type}</p>
+        <p class="cars-price">Price: ${price}</p>
+      </li>`).join("");
+
+
+listOfCars.insertAdjacentHTML("beforeend", carMurkup);
+
+
+
+// Task 100. Delete an element
+
+const listOfCarsAfter = document.querySelector(".cars");
+
+const deletedEl = [...listOfCarsAfter.children].find((el) => el.dataset.id === '1');
+
+deletedEl.remove();
+
+
+
