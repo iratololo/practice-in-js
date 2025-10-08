@@ -2962,16 +2962,42 @@ const carsList = [
 
 const listOfCars = document.querySelector(".cars");
 
-const carMurkup = carsList.map(({id="none", model, type, price, img }) => `<li class="cars-item" data-id=${id}>
-        <img src="${img}" alt="${model}" class="cars-img" />
-        <p class="cars-text">Model: ${model}</p>
-        <p class="cars-text">Type: ${type}</p>
-        <p class="cars-price">Price: ${price}</p>
-      </li>`).join("");
+
+// variant 1
+// const carMurkup = carsList.map(({id="none", model, type, price, img }) => `<li class="cars-item" data-id=${id}>
+//         <img src="${img}" alt="${model}" class="cars-img" />
+//         <p class="cars-text">Model: ${model}</p>
+//         <p class="cars-text">Type: ${type}</p>
+//         <p class="cars-price">Price: ${price}</p>
+//       </li>`).join("");
 
 
-listOfCars.insertAdjacentHTML("beforeend", carMurkup);
+// listOfCars.insertAdjacentHTML("beforeend", carMurkup);
 
+// variant 2
+
+const newElements = carsList.map(({ id = "none", model, type, price, img }) => {
+    const li = document.createElement('li');
+    li.classList.add("cars-item");
+    li.setAttribute("data-id", id);
+    const carImg = document.createElement('img');
+    carImg.classList.add("cars-img");
+    carImg.setAttribute("src", img);
+    carImg.setAttribute("alt", model);
+    const textModel = document.createElement("p");
+    textModel.classList.add("cars-text");
+    textModel.textContent = `Model: ${model}`;
+    const textType = document.createElement("p");
+    textType.classList.add("cars-text");
+    textType.textContent = `Type: ${type}`;
+    const textPrice = document.createElement("p");
+    textPrice.classList.add("cars-price");
+    textPrice.textContent = `Price: ${price}`;
+    li.append(carImg, textModel, textType, textPrice);
+    return li;
+})
+
+listOfCars.append(...newElements);
 
 
 // Task 100. Delete an element
@@ -2983,4 +3009,7 @@ const deletedEl = [...listOfCarsAfter.children].find((el) => el.dataset.id === '
 deletedEl.remove();
 
 
+
+
+// Task 101. Delete an element
 
