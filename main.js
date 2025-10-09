@@ -3011,5 +3011,4 @@ deletedEl.remove();
 
 
 
-// Task 101. Delete an element
 
