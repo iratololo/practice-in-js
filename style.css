@@ -1,4 +1,4 @@
-.cars {
+.cars, .cars-list {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -50,4 +50,18 @@
     left: 0;
     object-fit: cover;
     object-position: center;
+}
+
+
+.description{
+   font-size: 18px;
+}
+
+.car-search {
+    padding: 15px;
+}
+
+
+.car-search-form{
+   text-align: center;
 }

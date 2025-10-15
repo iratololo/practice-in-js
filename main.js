@@ -2848,7 +2848,7 @@ child.style.color = "green";
 
 // Create new element
 const heading = document.createElement("h2");
-console.dir(heading.getAttribute("data-goods"));
+// console.dir(heading.getAttribute("data-goods"));
 // Add content
 heading.textContent = "DOM and actions";
 // Add class
@@ -3010,5 +3010,161 @@ deletedEl.remove();
 
 
 
+// Task 101. Show more text on click
 
+const text = document.querySelector(".description");
+const maxLength = 50;
+const totalLength = maxLength + 3;
+text.addEventListener("click", onClick);
+
+function onClick(evt) {
+    const text = evt.currentTarget;
+    const visableStr = text.textContent.slice(0, maxLength);
+    if (text.textContent.length > totalLength) {
+        const hiddenStr = text.textContent.slice(maxLength);
+        text.setAttribute("data-text", hiddenStr);
+        text.textContent = visableStr + "...";
+    } else {
+        if (text.dataset.text) {
+            text.textContent = visableStr + text.dataset.text;
+        }
+    }
+}
+
+
+
+
+// Task 102. Create a search logic.
+
+const carList = [
+    {
+        id:1,
+        model: "Honda",
+        type: "Civic",
+        price: 12000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:2,
+        model: "Audi",
+        type: "Q7",
+        price: 40000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:3,
+        model: "BMW",
+        type: "S series",
+        price: 9000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+         id:4,
+        model: "Honda",
+        type: "Civic",
+        price: 12000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:5,
+        model: "Audi",
+        type: "Q7",
+        price: 40000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:6,
+        model: "BMW",
+        type: "S series",
+        price: 9000,
+        img:"https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:7, 
+        model: "Honda",
+        type: "Civic",
+        price: 12000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:8,
+        model: "Audi",
+        type: "Q7",
+        price: 40000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+    {
+        id:9,
+        model: "BMW",
+        type: "S series",
+        price: 9000,
+        img: "https://upload.wikimedia.org/wikipedia/commons/2/24/2025_Honda_Civic_Hybrid_Sport_Touring_%28facelift%29%2C_front_4.18.25.jpg",
+    },
+]
+
+const carGallery = document.querySelector(".cars-list");
+
+
+function createMurkUp (arr) {return arr.map(({id,model,type,price,img})=>`<ul class="cars-item" data-id=${id}>
+          <img src="${img}" alt="${model}" class="cars-img">
+          <button class="chosen-btn">Add to favourites</button>
+          <p class="cars-text">Model: ${model}</p>
+          <p class="cars-text">Type: ${type}</p>
+          <p class="cars-text">Price: ${price}</p>
+        </ul>`).join("")} 
+
+carGallery.insertAdjacentHTML('beforeend', createMurkUp(carList));
+
+const carForm = document.querySelector(".car-search-form");
+
+carForm.addEventListener("submit", onSubmit)
+
+function onSubmit(evt) {
+    evt.preventDefault();
+   
+    const { input, select } = evt.currentTarget.elements;
+    const inputValue = input.value;
+    const selectValue = select.value;
+    if (!inputValue) {
+        carGallery.innerHTML = "";
+        carGallery.insertAdjacentHTML('beforeend', createMurkUp(carList));
+        return;
+    }
+    const selectedCars = carList.filter(el => el[selectValue].toLowerCase() === inputValue.trim().toLowerCase());
+   
+    if (!selectedCars.length) {
+        carGallery.innerHTML = "Not found";
+        return;
+    }
+    carGallery.innerHTML = createMurkUp(selectedCars);
+}
+
+
+
+// ((selectValue === 'model') && (el.model.toLowerCase() === inputValue.toLowerCase())) || ((selectValue === 'type') && (el.type.toLowerCase() === inputValue.toLowerCase()))
+
+
+
+
+// Task 103. Create chosen list.
+
+const carsGallery = document.querySelector(".cars-list");
+const chosenCars = document.querySelector(".favourites");
+
+carsGallery.addEventListener("click", addFavourites)
+
+function addFavourites(evt) {
+    console.dir(evt.target.parentElement.dataset.id);
+    const favouriteCars = [];
+    if (evt.target.classList.contains("chosen-btn")) {
+        const { id } = evt.target.closest("li").dataset;
+        console.log(id)
+        const item = carList.find(el => el.id === Number(id));
+        // if (favouriteCars.length && favouriteCars.some(el = el.id === item.id)) {
+        //     return;
+        // }
+        favouriteCars.push(item);
+        chosenCars.insertAdjacentHTML("beforeend", createMurkUp(favouriteCars))
+    }
+}
 
