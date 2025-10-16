@@ -3105,13 +3105,13 @@ const carList = [
 const carGallery = document.querySelector(".cars-list");
 
 
-function createMurkUp (arr) {return arr.map(({id,model,type,price,img})=>`<ul class="cars-item" data-id=${id}>
+function createMurkUp (arr) {return arr.map(({id,model,type,price,img})=>`<li class="cars-item" data-id=${id}>
           <img src="${img}" alt="${model}" class="cars-img">
           <button class="chosen-btn">Add to favourites</button>
           <p class="cars-text">Model: ${model}</p>
           <p class="cars-text">Type: ${type}</p>
           <p class="cars-text">Price: ${price}</p>
-        </ul>`).join("")} 
+        </li>`).join("")} 
 
 carGallery.insertAdjacentHTML('beforeend', createMurkUp(carList));
 
@@ -3153,18 +3153,27 @@ const chosenCars = document.querySelector(".favourites");
 
 carsGallery.addEventListener("click", addFavourites)
 
+
+
+const favouriteCars = [];
+
 function addFavourites(evt) {
-    console.dir(evt.target.parentElement.dataset.id);
-    const favouriteCars = [];
-    if (evt.target.classList.contains("chosen-btn")) {
-        const { id } = evt.target.closest("li").dataset;
-        console.log(id)
-        const item = carList.find(el => el.id === Number(id));
-        // if (favouriteCars.length && favouriteCars.some(el = el.id === item.id)) {
-        //     return;
-        // }
+    const btn = evt.target;
+    if (!btn.classList.contains("chosen-btn")) return;
+
+    const { id } = btn.closest("li").dataset;
+    const item = carList.find(el => el.id === Number(id));
+    const idx = favouriteCars.findIndex(el => el.id === item.id);
+
+    if (!!~idx) {
+        favouriteCars.splice(idx, 1);
+        btn.innerHTML = "Add to favourites";
+    } else {
         favouriteCars.push(item);
-        chosenCars.insertAdjacentHTML("beforeend", createMurkUp(favouriteCars))
+        btn.innerHTML = "Remove from favourites";
     }
+
+        chosenCars.innerHTML = createMurkUp(favouriteCars);
+        btn.classList.toggle("fav-active");
 }
 

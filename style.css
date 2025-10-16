@@ -65,3 +65,7 @@
 .car-search-form{
    text-align: center;
 }
+
+.fav-active {
+    background-color: orange;
+}
