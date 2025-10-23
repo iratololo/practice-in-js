@@ -3177,3 +3177,13 @@ function addFavourites(evt) {
         btn.classList.toggle("fav-active");
 }
 
+
+
+// Task 104. Properties of select
+
+const select = document.querySelector(".car-select");
+console.dir(select)
+console.log("value", select.value);
+console.log("index",select.selectedIndex);
+console.log("options", select.options);
+console.log("text",select.options[select.selectedIndex].text);
