@@ -69,3 +69,14 @@
 .fav-active {
     background-color: orange;
 }
+
+.red-square-btn{
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.red-square{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}

@@ -3182,8 +3182,57 @@ function addFavourites(evt) {
 // Task 104. Properties of select
 
 const select = document.querySelector(".car-select");
-console.dir(select)
-console.log("value", select.value);
-console.log("index",select.selectedIndex);
-console.log("options", select.options);
-console.log("text",select.options[select.selectedIndex].text);
+// console.dir(select)
+// console.log("value", select.value);
+// console.log("index",select.selectedIndex);
+// console.log("options", select.options);
+// console.log("text", select.options[select.selectedIndex].text);
+
+
+
+// Task 105. Bubbling
+const blockA = document.querySelector(".bubbling-a");
+const blockB = document.querySelector(".bubbling-b");
+const blockC = document.querySelector(".bubbling-c");
+
+function bubblingHendler(e) {
+    console.log(e.currentTarget.textContent);
+};
+
+function bubblingHendlerChild(e) {
+    console.log(e.currentTarget.textContent);
+    // e.stopPropagation();
+};
+
+
+blockC.addEventListener("click", bubblingHendlerChild);
+blockB.addEventListener("click", bubblingHendler);
+blockA.addEventListener("click", bubblingHendler);
+
+
+
+// Task 106. Press the button to make the red square move.
+
+const redBtn = document.querySelector(".red-square-btn");
+const redSquare = document.querySelector(".red-square");
+
+redBtn.addEventListener("click", squareHandler);
+
+let step = 0;
+function squareHandler(e) {
+    step += 10;
+    redSquare.style.marginTop = `${step}px`;
+    redSquare.style.marginLeft = `${step}px`;
+}
+
+
+
+// Task 107. Input event
+
+const userName = document.querySelector(".userName");
+
+userName.addEventListener("blur", handlerInput);
+
+function handlerInput(e) {
+    alert(`Hello, ${e.currentTarget.value}`);
+}
