@@ -3137,6 +3137,7 @@ function onSubmit(evt) {
         return;
     }
     carGallery.innerHTML = createMurkUp(selectedCars);
+    evt.currentTarget.reset();
 }
 
 

@@ -80,3 +80,47 @@ margin-bottom: 20px;
     height: 100px;
     background-color: red;
 }
+
+#counter {
+    display: flex;
+    column-gap: 25px;
+    align-items: center;
+}
+
+#counter button {
+    background-color: #42b2f8;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    min-width: 50px;
+}
+
+#counter span {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+#name-input {
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+
+#validation-input {
+    border: 3px solid #bdbdbd;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#validation-input.valid {
+    border-color: #4caf50;
+}
+
+#validation-input.invalid {
+    border-color: #f44336;
+}
